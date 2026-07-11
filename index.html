@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西班牙 15 晚深度慢遊 · 團員簡易版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EAD7; --paper-2:#FBF4E6; --card:#FCF7EC;
+  --ink:#2C2114; --ink-soft:#6E5C44;
+  --ink-mute:#8C775B;
+  --wine:#8E2A22; --wine-deep:#641C16; --wine-soft:#B24A3C;
+  --ochre:#BC872C; --ochre-deep:#9A6E1E; --ochre-soft:#E3C57F;
+  --azulejo:#1E5F77; --azulejo-deep:#16455A;
+  --line:#E0CFAE; --line-soft:#EADBBE;
+  --shadow:24px 30px 60px -32px rgba(70,40,16,.45);
+  --shadow-sm:10px 14px 30px -18px rgba(70,40,16,.4);
+  --serif:"Noto Serif TC",serif;
+  --sans:"Noto Sans TC","PingFang TC",sans-serif;
+  --display:"Fraunces","Noto Serif TC",serif;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-weight:400; line-height:1.7;
+  font-size:16px; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+/* paper grain */
+body::before{
+  content:""; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply; opacity:.05;
+}
+::selection{background:var(--ochre-soft); color:var(--wine-deep);}
+a{color:var(--azulejo); text-decoration:none; border-bottom:1px solid rgba(30,95,119,.35); transition:color .25s,border-color .25s;}
+a:hover{color:var(--azulejo-deep); border-color:var(--azulejo);}
+
+/* ---------- top nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px);
+  background:linear-gradient(var(--paper),rgba(244,234,215,.86));
+  border-bottom:1px solid var(--line);
+}
+.nav__in{max-width:var(--maxw); margin:0 auto; padding:.7rem clamp(1rem,4vw,2rem);
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;}
+.nav__brand{font-family:var(--display); font-weight:600; font-size:1.02rem; letter-spacing:.06em; color:var(--wine); white-space:nowrap;}
+.nav__brand small{font-family:var(--sans); color:var(--ink-mute); font-size:.7rem; letter-spacing:.14em; display:block; font-weight:500;}
+.nav__links{display:flex; gap:1.4rem; font-size:.82rem; letter-spacing:.12em; font-weight:500;}
+.nav__links a{color:var(--ink-soft); border:0; text-transform:uppercase;}
+.nav__links a:hover{color:var(--wine);}
+@media(max-width:760px){ .nav__links{display:none;} }
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(1.1rem,4vw,2.2rem);}
+section{padding:clamp(3rem,7vw,5.6rem) 0;}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative; min-height:96vh; display:flex; flex-direction:column; justify-content:center;
+  padding:5rem clamp(1.1rem,4vw,2.2rem) 4rem; overflow:hidden; text-align:center;
+  background:
+    radial-gradient(120% 90% at 80% -10%, rgba(188,135,44,.20), transparent 55%),
+    radial-gradient(120% 120% at 10% 110%, rgba(142,42,34,.16), transparent 50%),
+    linear-gradient(160deg,#F6ECD9 0%, #F1E4CC 55%, #ECD9B9 100%);
+}
+/* Andalusian sun */
+.hero__sun{position:absolute; top:-16vh; right:-10vw; width:62vh; height:62vh; border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(188,135,44,.28), rgba(188,135,44,.06) 60%, transparent 70%);
+  z-index:0;}
+.hero__sun::after{content:""; position:absolute; inset:11%; border-radius:50%;
+  background:repeating-conic-gradient(from 0deg, rgba(188,135,44,.16) 0 1.2deg, transparent 1.2deg 9deg);
+  -webkit-mask:radial-gradient(circle, transparent 38%, #000 39%, #000 49%, transparent 50%);
+          mask:radial-gradient(circle, transparent 38%, #000 39%, #000 49%, transparent 50%);}
+/* faint moorish star field */
+.hero__stars{position:absolute; inset:0; z-index:0; opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23BC872C' stroke-opacity='0.15' stroke-width='1'%3E%3Cpath d='M36 8 L44 28 L64 36 L44 44 L36 64 L28 44 L8 36 L28 28 Z'/%3E%3Crect x='26' y='26' width='20' height='20' transform='rotate(45 36 36)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:72px 72px;
+  -webkit-mask:radial-gradient(120% 80% at 50% 40%, #000, transparent 78%);
+          mask:radial-gradient(120% 80% at 50% 40%, #000, transparent 78%);}
+/* horseshoe arch outline behind title */
+.hero__arch{position:absolute; left:50%; top:48%; transform:translate(-50%,-50%); width:min(640px,86vw); height:min(640px,86vw); z-index:0; opacity:.5;}
+.hero__inner{position:relative; z-index:2; max-width:920px; margin:0 auto;}
+.eyebrow{font-family:var(--sans); font-weight:500; letter-spacing:.42em; text-transform:uppercase;
+  font-size:clamp(.62rem,1.5vw,.78rem); color:var(--wine); margin:0 0 1.4rem;}
+.eyebrow span{color:var(--ochre-deep);}
+.hero h1{font-family:var(--serif); font-weight:900; color:var(--wine-deep);
+  font-size:clamp(3.6rem,15vw,9rem); line-height:.9; letter-spacing:.04em; margin:0;
+  text-shadow:0 1px 0 rgba(255,255,255,.4);}
+.hero__es{display:block; font-family:var(--display); font-style:italic; font-weight:500;
+  color:var(--ochre-deep); font-size:clamp(1.3rem,4.5vw,2.4rem); letter-spacing:.18em; margin:.7rem 0 0;}
+.hero__sub{font-family:var(--serif); font-weight:600; color:var(--ink); font-size:clamp(1.15rem,3.4vw,1.7rem);
+  letter-spacing:.22em; margin:1.5rem 0 0;}
+.hero__route{font-family:var(--display); font-weight:500; letter-spacing:.2em;
+  font-size:clamp(.66rem,1.8vw,.96rem); color:var(--ink-soft); margin:2rem auto 0; max-width:760px; line-height:2;}
+.hero__route b{color:var(--wine); font-weight:600;}
+.hero__meta{display:flex; flex-wrap:wrap; gap:0 2.4rem; justify-content:center; margin-top:2.4rem;
+  font-family:var(--sans); font-size:.86rem; letter-spacing:.06em; color:var(--ink-soft);}
+.hero__meta span{display:inline-flex; align-items:center; gap:.5rem;}
+.hero__meta b{font-family:var(--display); font-weight:600; color:var(--ink); font-size:1.05rem; letter-spacing:.03em;}
+.hero__meta i{color:var(--ochre); font-style:normal; font-size:1.1rem; line-height:1;}
+.scroll-cue{position:absolute; left:50%; bottom:1.7rem; transform:translateX(-50%); z-index:2;
+  font-size:.66rem; letter-spacing:.32em; text-transform:uppercase; color:var(--ink-mute); writing-mode:vertical-rl;}
+.scroll-cue::after{content:""; display:block; width:1px; height:34px; margin:.7rem auto 0;
+  background:linear-gradient(var(--ochre),transparent); animation:cue 2.4s ease-in-out infinite;}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ---------- section heads ---------- */
+.sec-head{text-align:center; margin-bottom:clamp(2rem,5vw,3.2rem);}
+.kicker{font-family:var(--display); font-style:italic; font-weight:500; color:var(--ochre-deep);
+  letter-spacing:.06em; font-size:1.02rem;}
+.kicker b{font-style:normal; font-family:var(--sans); font-weight:700; color:var(--wine);
+  letter-spacing:.34em; font-size:.7rem; display:block; text-transform:uppercase; margin-bottom:.5rem;}
+.sec-head h2{font-family:var(--serif); font-weight:700; color:var(--ink); margin:.5rem 0 0;
+  font-size:clamp(1.7rem,4.6vw,2.7rem); letter-spacing:.06em;}
+.rule{display:flex; align-items:center; justify-content:center; gap:.9rem; margin:1.2rem auto 0; max-width:300px;}
+.rule::before,.rule::after{content:""; height:1px; flex:1; background:linear-gradient(90deg,transparent,var(--ochre));}
+.rule::after{background:linear-gradient(90deg,var(--ochre),transparent);}
+.rule i{width:8px; height:8px; background:var(--ochre); transform:rotate(45deg); flex:0 0 auto;}
+
+/* ---------- intro / cards ---------- */
+.intro{display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(1.6rem,4vw,3rem); align-items:center;}
+.intro__lede{font-family:var(--serif); font-size:clamp(1.05rem,2.5vw,1.3rem); line-height:1.95; color:var(--ink); margin:0;}
+.intro__lede .dropcap{float:left; font-family:var(--display); font-weight:900; color:var(--wine);
+  font-size:4.2rem; line-height:.78; padding:.35rem .6rem 0 0;}
+.intro__note{margin-top:1.3rem; font-size:.92rem; color:var(--ink-soft); border-left:3px solid var(--ochre); padding-left:1rem;}
+.cards{display:grid; grid-template-columns:1fr 1fr; gap:1rem;}
+.card-fact{background:var(--card); border:1px solid var(--line); border-radius:3px; padding:1.3rem 1.3rem 1.4rem;
+  box-shadow:var(--shadow-sm); position:relative; overflow:hidden;}
+.card-fact::before{content:""; position:absolute; top:0; left:0; width:100%; height:3px;
+  background:linear-gradient(90deg,var(--wine),var(--ochre));}
+.card-fact .lab{font-family:var(--sans); font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.66rem; color:var(--ochre-deep);}
+.card-fact .val{font-family:var(--serif); font-weight:600; color:var(--ink); font-size:1.12rem; margin-top:.45rem; line-height:1.45;}
+.card-fact .en{font-family:var(--display); font-style:italic; color:var(--ink-mute); font-size:.82rem; letter-spacing:.04em;}
+@media(max-width:780px){ .intro{grid-template-columns:1fr;} }
+@media(max-width:460px){ .cards{grid-template-columns:1fr;} }
+
+/* ---------- journey timeline ---------- */
+.journey{position:relative; margin:0 auto; max-width:840px; padding-left:2.6rem;}
+.journey::before{content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(var(--ochre),var(--wine-soft));}
+.leg{position:relative; padding:0 0 1.9rem 1.4rem;}
+.leg:last-child{padding-bottom:0;}
+.leg__dot{position:absolute; left:-2.6rem; top:.15rem; width:20px; height:20px; border-radius:50%;
+  background:var(--paper); border:2px solid var(--wine); display:grid; place-items:center;}
+.leg__dot::after{content:""; width:7px; height:7px; border-radius:50%; background:var(--ochre);}
+.leg__top{display:flex; align-items:baseline; gap:.8rem; flex-wrap:wrap;}
+.leg__city{font-family:var(--serif); font-weight:700; font-size:1.35rem; color:var(--wine-deep); letter-spacing:.04em;}
+.leg__en{font-family:var(--display); font-style:italic; color:var(--ochre-deep); font-size:.92rem; letter-spacing:.08em;}
+.leg__nights{margin-left:auto; font-family:var(--sans); font-weight:700; font-size:.68rem; letter-spacing:.1em;
+  color:var(--wine); background:rgba(142,42,34,.08); border:1px solid rgba(142,42,34,.2);
+  padding:.18rem .6rem; border-radius:100px; white-space:nowrap;}
+.leg__dates{font-family:var(--display); font-style:italic; color:var(--ink-mute); font-size:.82rem;}
+.leg__hi{margin:.4rem 0 0; color:var(--ink-soft); font-size:.95rem;}
+.leg__move{display:inline-flex; align-items:center; gap:.5rem; margin-top:.7rem;
+  font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ochre-deep); font-weight:500;}
+.leg__move::before{content:""; width:18px; height:1px; background:var(--ochre);}
+
+/* ---------- transport ---------- */
+.t-grid{display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-bottom:1.6rem;}
+.pass{background:var(--card); border:1px solid var(--line); border-radius:4px; box-shadow:var(--shadow-sm);
+  display:grid; grid-template-columns:auto 1fr; overflow:hidden;}
+.pass__stub{background:linear-gradient(160deg,var(--wine),var(--wine-deep)); color:#F6E7CB;
+  padding:1.1rem .9rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem;
+  writing-mode:vertical-rl; letter-spacing:.2em; font-weight:600; font-size:.8rem;}
+.pass__body{padding:1rem 1.2rem;}
+.pass__body .r{font-family:var(--display); font-style:italic; color:var(--ochre-deep); font-size:.78rem; letter-spacing:.06em;}
+.pass__body .m{font-family:var(--serif); font-weight:600; color:var(--ink); margin:.2rem 0 .35rem; font-size:1.04rem;}
+.pass__body .d{font-size:.86rem; color:var(--ink-soft);}
+.pass__body .d b{color:var(--wine);}
+
+table{width:100%; border-collapse:collapse; font-size:.9rem; background:var(--card);
+  border:1px solid var(--line); box-shadow:var(--shadow-sm);}
+caption{font-family:var(--display); font-style:italic; color:var(--ochre-deep); text-align:left;
+  padding:.2rem 0 .7rem; font-size:.95rem;}
+thead th{background:linear-gradient(160deg,var(--wine),var(--wine-deep)); color:#F7E8CC; font-family:var(--sans);
+  font-weight:700; letter-spacing:.08em; font-size:.78rem; padding:.7rem .8rem; text-align:left; vertical-align:middle;}
+tbody td{padding:.66rem .8rem; border-top:1px solid var(--line-soft); vertical-align:top;}
+tbody tr:nth-child(even){background:rgba(188,135,44,.06);}
+.rail td:nth-child(1){white-space:nowrap; color:var(--ink-soft);}
+.rail .star{color:var(--wine); font-weight:700; font-family:var(--serif);}
+.note-card{margin-top:1.4rem; background:var(--paper-2); border:1px dashed var(--ochre); border-radius:4px; padding:1.1rem 1.3rem; font-size:.92rem; color:var(--ink-soft);}
+.note-card b{color:var(--wine);}
+.note-card .h{font-family:var(--serif); font-weight:700; color:var(--ink); display:block; margin-bottom:.4rem; letter-spacing:.06em;}
+.warn{color:var(--wine); font-weight:500;}
+
+/* ---------- schedule ---------- */
+.schedule{width:100%; border-collapse:collapse; font-size:.86rem;}
+.schedule thead th{position:sticky; top:0;}
+.schedule .c-date{width:64px; text-align:center; white-space:nowrap;}
+.schedule .c-city{width:96px;}
+.schedule .c-stay{width:142px; text-align:center;}
+.schedule .c-note{width:168px;}
+.schedule tbody td{border-top:1px solid var(--line); padding:.8rem .85rem;}
+.schedule tbody tr{transition:background .25s;}
+.schedule tbody tr:hover{background:rgba(142,42,34,.06);}
+.s-date{font-family:var(--display); font-weight:600; font-size:1.18rem; color:var(--wine-deep);}
+.s-wd{display:block; font-size:.66rem; letter-spacing:.12em; color:var(--ink-mute); margin-top:.15rem;}
+.s-city{font-family:var(--serif); font-weight:700; color:var(--wine); font-size:1.02rem; letter-spacing:.03em;}
+.s-sub{display:block; font-family:var(--display); font-style:italic; color:var(--ink-mute); font-size:.78rem; margin-top:.15rem;}
+.blk{margin:0 0 .45rem; padding-left:3.4rem; position:relative; line-height:1.6;}
+.blk:last-child{margin-bottom:0;}
+.seg{position:absolute; left:0; top:.05rem; font-family:var(--sans); font-weight:700; font-size:.66rem;
+  letter-spacing:.06em; color:var(--ochre-deep); border:1px solid var(--ochre-soft); border-radius:3px;
+  padding:.06rem .3rem; background:rgba(188,135,44,.08); width:3rem; text-align:center;}
+.stay{display:inline-block; max-width:132px; font-family:var(--sans); font-weight:600; font-size:.76rem; line-height:1.35; color:var(--wine-deep);
+  background:rgba(142,42,34,.07); border:1px solid rgba(142,42,34,.18); border-radius:5px; padding:.32rem .5rem; overflow-wrap:anywhere;}
+.stay.muted{color:var(--ink-mute); background:rgba(140,119,91,.08); border-color:rgba(140,119,91,.2);}
+.notes{margin:0; padding:0; list-style:none; font-size:.78rem; color:var(--ink-soft); line-height:1.55;}
+.notes li{position:relative; padding-left:.95rem; margin-bottom:.4rem;}
+.notes li::before{content:"※"; position:absolute; left:0; top:0; color:var(--wine); font-size:.72rem;}
+.notes li:last-child{margin-bottom:0;}
+.schedule-wrap{overflow-x:auto; border:1px solid var(--line); box-shadow:var(--shadow); background:var(--card);}
+
+/* ---------- booking & tips ---------- */
+.booking td:first-child{font-family:var(--serif); font-weight:600; color:var(--ink);}
+.booking .when{color:var(--ink-soft);}
+.booking .star{color:var(--wine); font-weight:700;}
+.tips{display:grid; grid-template-columns:1fr 1fr; gap:.7rem 2rem; margin:0; padding:0; list-style:none;}
+.tips li{position:relative; padding:.4rem 0 .4rem 2.1rem; border-bottom:1px dotted var(--line); font-size:.92rem; color:var(--ink-soft);}
+.tips li::before{content:counter(t,decimal-leading-zero); counter-increment:t; position:absolute; left:0; top:.45rem;
+  font-family:var(--display); font-style:italic; font-weight:600; color:var(--ochre-deep); font-size:.92rem;}
+.tips{counter-reset:t;}
+@media(max-width:680px){ .tips{grid-template-columns:1fr;} .t-grid{grid-template-columns:1fr;} }
+
+/* ---------- footer ---------- */
+.foot{background:linear-gradient(160deg,var(--wine-deep),#4a140f); color:#E9D3AE; text-align:center;
+  padding:clamp(3rem,7vw,5rem) 1.4rem;}
+.foot h3{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,4vw,2.2rem); margin:0 0 .6rem; color:#F6E7C9; letter-spacing:.1em;}
+.foot .es{font-family:var(--display); font-style:italic; letter-spacing:.2em; color:var(--ochre-soft); font-size:1rem;}
+.foot p{max-width:560px; margin:1.4rem auto 0; font-size:.82rem; line-height:1.8; color:#D7BF98;}
+.foot .rule i{background:var(--ochre-soft);}
+.foot .rule::before,.foot .rule::after{background:linear-gradient(90deg,transparent,var(--ochre-soft));}
+.foot .rule::after{background:linear-gradient(90deg,var(--ochre-soft),transparent);}
+
+/* ---------- reveal animation ---------- */
+.js .reveal{opacity:0; transform:translateY(22px);}
+.reveal.in{opacity:1; transform:none; transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);}
+.hero__inner > *{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both;}
+.hero h1{animation-delay:.15s} .hero__sub{animation-delay:.35s}
+.hero__route{animation-delay:.5s} .hero__meta{animation-delay:.65s} .eyebrow{animation-delay:.05s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important} .js .reveal{opacity:1;transform:none}}
+
+/* ---------- print: A4 brochure ---------- */
+@media print{
+  @page{size:A4 portrait; margin:13mm;}
+  html,body{background:#fff;}
+  body{font-size:10.2px;}
+  /* drop the fixed feTurbulence paper-grain in print: its mix-blend-mode forces a
+     full-page raster on every page (~16MB & slow). Invisible at print opacity anyway. */
+  body::before{display:none!important;}
+  .no-print{display:none!important;}
+  a{color:var(--azulejo); border:0;}
+  .wrap{max-width:none; padding:0;}
+  section{padding:9mm 0;}
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .js .reveal,.reveal{opacity:1!important; transform:none!important;}
+  .hero{min-height:auto; height:262mm; break-after:page; padding-top:30mm;}
+  .scroll-cue{display:none;}
+  .section--schedule{break-before:page;}
+  .schedule-wrap{overflow:visible; box-shadow:none;}
+  thead{display:table-header-group;}
+  tr,.leg,.card-fact,.pass,.note-card,.rail{break-inside:avoid;}
+  table,.pass,.card-fact,.schedule-wrap{box-shadow:none;}
+}
+
+  .edition-badge{display:inline-block;margin-top:1.4rem;padding:.42rem 1.15rem;border:1px solid rgba(142,42,34,.35);
+    border-radius:100px;color:var(--wine);background:rgba(255,255,255,.28);font-weight:700;letter-spacing:.2em;font-size:.75rem;}
+  .legend{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin:0 0 1.2rem;}
+  .legend__item{border:1px solid var(--line);background:var(--card);padding:.7rem;border-radius:4px;font-size:.76rem;line-height:1.45;}
+  .status{display:inline-block;min-width:2.1em;margin-right:.35rem;text-align:center;font-weight:700;}
+  .status--locked{color:var(--wine-deep)} .status--deadline{color:var(--ochre-deep)}
+  .status--fee{color:var(--azulejo)} .status--refundable{color:#2c6a49} .status--unknown{color:var(--ink-mute)}
+  .privacy-note{margin-top:1.1rem;padding:.8rem 1rem;border-left:3px solid var(--ochre);background:rgba(188,135,44,.07);
+    color:var(--ink-soft);font-size:.86rem;}
+  .compact td{padding:.52rem .7rem}.compact th{padding:.62rem .7rem}.compact{font-size:.82rem;}
+  .section--restrictions{break-before:page}.section--lodging{break-before:page}.section--tips{break-before:page}
+  .schedule .c-stay{width:132px}.schedule .c-note{width:154px}.schedule .c-city{width:90px}
+  @media(max-width:720px){.legend{grid-template-columns:1fr 1fr}}
+  @media print{
+    .legend{grid-template-columns:repeat(5,1fr)}
+    .legend__item{break-inside:avoid}
+    .section--restrictions,.section--lodging,.section--tips{break-before:page}
+    .compact{font-size:8.5px}
+    .compact td{padding:3.2mm 2.2mm}
+    .schedule{font-size:8.4px}
+    .schedule tbody td{padding:3.5mm 2.2mm}
+    .privacy-note{font-size:8.5px}
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero__sun" aria-hidden="true"></div><div class="hero__stars" aria-hidden="true"></div>
+  <svg class="hero__arch" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="#BC872C" stroke-width="1">
+    <path d="M40 196 V96 a60 60 0 0 1 120 0 V196" stroke-opacity="0.35"/>
+    <path d="M52 196 V96 a48 48 0 0 1 96 0 V196" stroke-opacity="0.22"/>
+  </svg>
+  <div class="hero__inner">
+    <p class="eyebrow">團員行程手冊 &nbsp;·&nbsp; <span>深度慢遊</span> &nbsp;·&nbsp; 一路向南</p>
+    <h1>西班牙<span class="hero__es">A Slow Journey through España</span></h1>
+    <p class="hero__sub">十五晚 · 由北而南 · 不折返</p>
+    <p class="hero__route"><b>BARCELONA</b> · MADRID · CÓRDOBA · SEVILLA · GRANADA · <b>MÁLAGA</b></p>
+    <div class="hero__meta">
+      <span><i>◆</i> <b>2026.09.20 – 10.06</b></span>
+      <span><i>◆</i> <b>15 晚 17 日</b></span>
+      <span><i>◆</i> <b>團員簡易版</b></span>
+    </div>
+    <div class="edition-badge">不含訂房編號與票務操作資料</div>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="intro">
+    <p class="intro__lede"><span class="dropcap">這</span>是一趟由巴塞隆納一路向南、從馬拉加離境的西班牙慢遊。城市間搭高鐵，安達魯西亞南部自駕；每日保留休息時間，備選景點依天氣與體力調整。
+      <span class="intro__note">本版提供團員閱讀，保留每日活動、集合資訊、住宿、主要交通及取消限制。完整聯絡、票務、付款與操作資料由導遊另行保管。</span>
+    </p>
+    <div class="cards">
+      <div class="card-fact"><div class="lab">Dates · 旅行日期</div><div class="val">2026.09.20 – 10.06</div><div class="en">15 nights · 17 calendar days</div></div>
+      <div class="card-fact"><div class="lab">Pace · 節奏</div><div class="val">慢遊不趕</div><div class="en">slow & unhurried</div></div>
+      <div class="card-fact"><div class="lab">Gateway · 進 / 出</div><div class="val">巴塞隆納 進<br>馬拉加 出</div><div class="en">in BCN · out AGP</div></div>
+      <div class="card-fact"><div class="lab">Must-see · 必訪</div><div class="val">聖家堂 · 梅斯基塔<br>阿罕布拉宮</div><div class="en">the three jewels</div></div>
+    </div>
+  </div>
+  <div class="sec-head" style="margin-top:12mm">
+    <p class="kicker"><b>01 — The Route</b>路線總覽</p><h2>一路向南的旅程</h2><div class="rule"><i></i></div>
+  </div>
+  <div class="journey">
+    <div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">巴塞隆納</span><span class="leg__en">Barcelona</span><span class="leg__nights">5 晚 · 9/20–24</span></div><p class="leg__hi">哥德區、海濱、聖家堂、奎爾公園、蒙特塞拉特</p><span class="leg__move">高鐵 → 馬德里</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">馬德里</span><span class="leg__en">Madrid</span><span class="leg__nights">2 晚 · 9/25–26</span></div><p class="leg__hi">麗池公園、主廣場、皇宮、佛朗明哥</p><span class="leg__move">高鐵 → 哥多華</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">哥多華</span><span class="leg__en">Córdoba</span><span class="leg__nights">1 晚 · 9/27</span></div><p class="leg__hi">梅斯基塔、羅馬橋、猶太區、百花巷</p><span class="leg__move">高鐵 → 賽維亞</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">賽維亞</span><span class="leg__en">Sevilla</span><span class="leg__nights">3 晚 · 9/28–30</span></div><p class="leg__hi">王宮、大教堂、西班牙廣場、隆達一日遊</p><span class="leg__move">自駕 → 格拉納達</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">格拉納達</span><span class="leg__en">Granada</span><span class="leg__nights">3 晚 · 10/1–3</span></div><p class="leg__hi">阿罕布拉宮、阿爾拜辛、大教堂、彈性活動</p><span class="leg__move">自駕 → 馬拉加</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">馬拉加</span><span class="leg__en">Málaga</span><span class="leg__nights">1 晚 · 10/4</span></div><p class="leg__hi">阿爾卡薩瓦、羅馬劇場、海邊散步</p><span class="leg__move">10/5 搭機返程</span></div>
+  </div>
+</section>
+
+<section class="wrap section--restrictions">
+  <div class="sec-head"><p class="kicker"><b>02 — Booking Rules</b>預訂限制</p><h2>不可退改與取消期限</h2><div class="rule"><i></i></div></div>
+  <div class="legend">
+    <div class="legend__item"><b>🔒 視同不可退改</b><br>行程不可任意移動</div>
+    <div class="legend__item"><b>⏳ 有取消期限</b><br>逾期扣款或不退款</div>
+    <div class="legend__item"><b>↔ 退改需付費</b><br>有手續費或票價差</div>
+    <div class="legend__item"><b>✅ 可退款</b><br>截止時間未必已提供</div>
+    <div class="legend__item"><b>❓ 條款未載明</b><br>須先向供應商確認</div>
+  </div>
+  <table class="booking compact">
+    <thead><tr><th>預訂項目</th><th>日期／範圍</th><th>取消與修改條件</th></tr></thead>
+    <tbody><tr><td>國際機票</td><td>去程 EK387／EK185、回程 EY108／EY898</td><td><span class="status status--locked">🔒</span>已出票；退票成本過高，視同不可退款／不可修改</td></tr><tr><td>固定住宿</td><td>巴塞隆納、馬德里、賽維亞、格拉納達</td><td><span class="status status--locked">🔒</span>不可退款；部分亦不可更改日期</td></tr><tr><td>哥多華住宿</td><td>9/27，共 1 晚</td><td><span class="status status--deadline">⏳ </span>2026/9/12 23:59 前免費取消（住宿當地時間）；之後收全額</td></tr><tr><td>馬拉加住宿</td><td>10/4，共 1 晚</td><td><span class="status status--deadline">⏳ </span>2026/9/5 23:59 前免費取消（住宿當地時間）；之後開始收取消費用</td></tr><tr><td>巴塞隆納 → 馬德里高鐵</td><td>9/25 12:14</td><td><span class="status status--refundable">✅ </span>iryo Infinita 彈性票，可退改（依 iryo 官方條款）</td></tr><tr><td>馬德里 → 哥多華高鐵</td><td>9/27 11:35</td><td><span class="status status--fee">↔ </span>退票扣 30%；最晚發車前 5 分鐘辦理</td></tr><tr><td>哥多華 → 賽維亞高鐵</td><td>9/28 12:48</td><td><span class="status status--fee">↔ </span>退票扣 30%；須於發車前辦理</td></tr><tr><td>聖家堂導覽＋登塔</td><td>9/22 14:15</td><td><span class="status status--deadline">⏳ </span>2026/9/21 14:15 CEST 前免費取消；之後不退款、不接受更改</td></tr><tr><td>奎爾公園入場</td><td>9/23 10:30</td><td><span class="status status--locked">🔒</span>官方票不可退款、不可更改；入場限時段後 30 分鐘內</td></tr><tr><td>蒙特塞拉特套票</td><td>使用日期不限</td><td><span class="status status--deadline">⏳ </span>依憑證推算 2026/6/29 前可免費取消，且票券須未使用；未載明截止時刻</td></tr><tr><td>馬德里皇宮＋Gallery</td><td>9/26 14:00</td><td><span class="status status--unknown">❓ </span>已購；票券未載明退改條款，視同不可退改</td></tr><tr><td>佛朗明哥晚餐秀</td><td>9/26 18:30</td><td><span class="status status--deadline">⏳ </span>2026/9/25 18:30（馬德里當地時間）前可取消</td></tr><tr><td>賽維亞王宮＋皇家上層公寓</td><td>9/29 10:00／11:00</td><td><span class="status status--locked">🔒</span>購票後不可退款或更換</td></tr><tr><td>阿罕布拉宮導覽</td><td>10/2 15:30</td><td><span class="status status--locked">🔒</span>不可退款、不可更改；15:30 為與 operator 更新後時間</td></tr><tr><td>巴塞隆納機場接機</td><td>9/20 13:25 抵達後</td><td><span class="status status--deadline">⏳ </span>2026/9/19 13:25（西班牙當地時間）前免費取消</td></tr><tr><td>桃園送機、桃園接機</td><td>9/19、10/6</td><td><span class="status status--refundable">✅ </span>可退款；取消截止時間未提供</td></tr><tr><td>Centauro 租車</td><td>9/30 09:00 取車</td><td><span class="status status--deadline">⏳ </span>2026/9/29 09:00（西班牙當地時間）前可取消，即取車前 24 小時</td></tr></tbody>
+  </table>
+  <p class="privacy-note"><b>團員版原則：</b>只顯示行程必要資訊，不顯示訂單號、訂房確認碼、PIN、付款資料、票券檔名或供應商操作資料。</p>
+</section>
+
+<section class="wrap section--lodging">
+  <div class="sec-head"><p class="kicker"><b>03 — Stay & Move</b>住宿與交通</p><h2>已訂住宿 · 主要移動</h2><div class="rule"><i></i></div></div>
+  <table class="booking compact">
+    <caption>住宿一覽</caption>
+    <thead><tr><th>城市</th><th>住宿日期</th><th>住宿名稱</th><th>取消／退款</th></tr></thead>
+    <tbody><tr><td>巴塞隆納</td><td>9/20–9/24 · 5 晚</td><td>Sweett - Casa Bailen</td><td><span class="status status--locked">🔒</span>不可退款／不可更改</td></tr><tr><td>馬德里</td><td>9/25–9/26 · 2 晚</td><td>奧古斯托慢慢套房公寓</td><td><span class="status status--locked">🔒</span>不可退款／不可更改</td></tr><tr><td>哥多華</td><td>9/27 · 1 晚</td><td>Noches de Córdoba</td><td><span class="status status--deadline">⏳ </span>9/12 23:59 前免費取消；之後收全額</td></tr><tr><td>賽維亞</td><td>9/28–9/30 · 3 晚</td><td>POP ART Conde Negro de Sevilla</td><td><span class="status status--locked">🔒</span>不可退款／不可更改</td></tr><tr><td>格拉納達</td><td>10/1–10/3 · 3 晚</td><td>拉卡斯塔德爾喀拉隆旅館</td><td><span class="status status--locked">🔒</span>不可退款</td></tr><tr><td>馬拉加</td><td>10/4 · 1 晚</td><td>Modern apartment with patio &amp; parking REMS</td><td><span class="status status--deadline">⏳ </span>9/5 23:59 前免費取消；之後開始收取消費用</td></tr></tbody>
+  </table>
+  <div style="height:8mm"></div>
+  <table class="rail compact">
+    <caption>主要交通</caption>
+    <thead><tr><th>日期</th><th>交通</th><th>取消／退款</th></tr></thead>
+    <tbody><tr><td>9/19（六）</td><td>21:45 新店出發 → 桃園機場</td><td><span class="status status--refundable">✅ </span>接送可退款；取消截止時間未提供</td></tr><tr><td>9/20（日）</td><td>00:30 桃園起飛，杜拜轉機；13:25 抵達巴塞隆納並接機</td><td><span class="status status--locked">🔒</span>機票視同不可退改；⏳ 接機 9/19 13:25 前免費取消</td></tr><tr><td>9/25（五）</td><td>12:14 巴塞隆納 Sants → 15:16 馬德里 Atocha（iryo 06320・Infinita）</td><td><span class="status status--refundable">✅ </span>已購 €94.65×3</td></tr><tr><td>9/27（日）</td><td>11:35 馬德里 Atocha → 13:19 哥多華</td><td><span class="status status--fee">↔ </span>退票扣 30%；最晚發車前 5 分鐘</td></tr><tr><td>9/28（一）</td><td>12:48 哥多華 → 13:41 賽維亞 Santa Justa</td><td><span class="status status--fee">↔ </span>退票扣 30%；須於發車前辦理</td></tr><tr><td>9/30（三）</td><td>09:00 賽維亞機場取車，開始南部自駕</td><td><span class="status status--deadline">⏳ </span>9/29 09:00 前可取消</td></tr><tr><td>10/5（一）</td><td>07:30 馬拉加機場還車；09:55 搭機前往阿布達比</td><td><span class="status status--deadline">⏳ </span>租車期限 9/29 09:00；🔒 機票視同不可退改</td></tr><tr><td>10/6（二）</td><td>10:00 抵達桃園，安排接送返家</td><td><span class="status status--locked">🔒</span>機票視同不可退改；✅ 接送可退款</td></tr></tbody>
+  </table>
+</section>
+
+<section class="wrap section--schedule">
+  <div class="sec-head"><p class="kicker"><b>04 — Day by Day</b>每日精簡行程</p><h2>十七日 · 每日安排</h2><div class="rule"><i></i></div></div>
+  <div class="schedule-wrap">
+    <table class="schedule">
+      <thead><tr><th class="c-date">日期</th><th class="c-city">城市 / 路線</th><th>每日重點</th><th class="c-stay">住宿點</th><th class="c-note">團員提醒</th></tr></thead>
+      <tbody>
+    <tr>
+      <td class="c-date"><span class="s-date">9/20</span><span class="s-wd">週日</span></td>
+      <td><span class="s-city">巴塞隆納</span><span class="s-sub">抵達 · 海濱</span></td>
+      <td>
+        <p class="blk"><span class="seg">下午</span>13:25 抵達巴塞隆納，接機、入住、休息</p>
+        <p class="blk"><span class="seg">傍晚</span>巴塞隆納塔海灘散步；晚 7 Portes 19:00</p>
+      </td>
+      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+      <td class="c-note"><ul class="notes"><li>機票視同不可退改；接機 9/19 13:25 前免費取消</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/21</span><span class="s-wd">週一</span></td>
+      <td><span class="s-city">巴塞隆納</span><span class="s-sub">哥德區慢遊</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>哥德區、中世紀街區；順逛波蓋利亞市場</p>
+        <p class="blk"><span class="seg">晚上</span>蘭布拉大道散步與晚餐</p>
+      </td>
+      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+      <td class="c-note"><ul class="notes"><li>市場排上午（週一部分魚攤休）；低強度調時差</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/22</span><span class="s-wd">週二</span></td>
+      <td><span class="s-city">巴塞隆納</span><span class="s-sub">高第經典</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>感恩大道（巴特婁之家／米拉之家外觀，約 30–45 分）；早上人潮較少</p>
+        <p class="blk"><span class="seg">下午</span>14:15–16:15 聖家堂導覽與登塔（14:05 集合）→ 聖保羅醫院（週二至 18:30）；晚 Paco Meralgo 20:00</p>
+      </td>
+      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+      <td class="c-note"><ul class="notes"><li>帶護照；Paco 勿晚於 20:15；9/21 14:15 CEST 前免費取消</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/23</span><span class="s-wd">週三</span></td>
+      <td><span class="s-city">巴塞隆納</span><span class="s-sub">公園與山景</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>奎爾公園 10:30 入場</p>
+        <p class="blk"><span class="seg">下午</span>蒙特惠克山、纜車；晚魔幻噴泉（開頭即撤）</p>
+      </td>
+      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+      <td class="c-note"><ul class="notes"><li>9/23 La Mercè 開幕，噴泉以現場為準；較費體力</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/24</span><span class="s-wd">週四</span></td>
+      <td><span class="s-city">蒙特塞拉特</span><span class="s-sub">一日遊</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>R5＋齒軌火車上山；修道院、黑面聖母</p>
+        <p class="blk"><span class="seg">下午</span>13:00 男童合唱團；約 16:00–16:30 下山</p>
+      </td>
+      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+      <td class="c-note"><ul class="notes"><li>9/24 La Mercè 假日班表，換票搭車要更早；套票日期不限</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/25</span><span class="s-wd">週五</span></td>
+      <td><span class="s-city">馬德里</span><span class="s-sub">高鐵移動</span></td>
+      <td>
+        <p class="blk"><span class="seg">中午</span>12:14 巴塞 Sants → 15:16 馬德里（iryo 已購）</p>
+        <p class="blk"><span class="seg">下午</span>麗池公園；晚太陽門＋Casa Lucio 20:00</p>
+      </td>
+      <td class="c-stay"><span class="stay">奧古斯托慢慢套房公寓</span></td>
+      <td class="c-note"><ul class="notes"><li>提早 30 分鐘到站</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/26</span><span class="s-wd">週六</span></td>
+      <td><span class="s-city">馬德里</span><span class="s-sub">舊城 · 佛朗明哥</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>主廣場、聖米格爾市場、皇宮衛兵交接</p>
+        <p class="blk"><span class="seg">下午</span>14:00 皇宮（已購）；晚 18:30 Corral 佛朗明哥晚餐秀</p>
+      </td>
+      <td class="c-stay"><span class="stay">奧古斯托慢慢套房公寓</span></td>
+      <td class="c-note"><ul class="notes"><li>皇宮票已購 14:00；9/25 18:30 前可取消佛朗明哥</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/27</span><span class="s-wd">週日</span></td>
+      <td><span class="s-city">哥多華</span><span class="s-sub">高鐵移動</span></td>
+      <td>
+        <p class="blk"><span class="seg">中午</span>11:35 馬德里 → 13:19 哥多華</p>
+        <p class="blk"><span class="seg">下午</span>16:30 梅斯基塔；傍晚羅馬橋、晚 Bodegas Mezquita 19:30</p>
+      </td>
+      <td class="c-stay"><span class="stay">Noches de Córdoba</span></td>
+      <td class="c-note"><ul class="notes"><li>高鐵退票扣 30%；餐廳勿晚於 19:45</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/28</span><span class="s-wd">週一</span></td>
+      <td><span class="s-city">賽維亞</span><span class="s-sub">高鐵移動</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>猶太區、百花巷</p>
+        <p class="blk"><span class="seg">中午</span>12:48 哥多華 → 13:41 賽維亞；晚上西班牙廣場</p>
+      </td>
+      <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
+      <td class="c-note"><ul class="notes"><li>高鐵退票扣 30%；須於發車前辦理</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/29</span><span class="s-wd">週二</span></td>
+      <td><span class="s-city">賽維亞</span><span class="s-sub">王宮 · 大教堂</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>10:00 王宮；11:00 皇家上層公寓</p>
+        <p class="blk"><span class="seg">下午</span>大教堂、都市陽傘；晚上河岸</p>
+      </td>
+      <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
+      <td class="c-note"><ul class="notes"><li>王宮票不可退款或更換；10:45 前到公寓入口</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">9/30</span><span class="s-wd">週三</span></td>
+      <td><span class="s-city">隆達</span><span class="s-sub">一日遊 · 自駕</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>09:00 取車，自駕前往隆達</p>
+        <p class="blk"><span class="seg">下午</span>新橋、峽谷、舊城；塞特尼爾視體力</p>
+      </td>
+      <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
+      <td class="c-note"><ul class="notes"><li>租車 9/29 09:00 前可取消</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">10/1</span><span class="s-wd">週四</span></td>
+      <td><span class="s-city">格拉納達</span><span class="s-sub">自駕移動</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>賽維亞 → 格拉納達，約 2.5 小時</p>
+        <p class="blk"><span class="seg">傍晚</span>阿爾拜辛；晚 Mirador de Morayma 19:30（露台）</p>
+      </td>
+      <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
+      <td class="c-note"><ul class="notes"><li>停車位已確認；坡度較大，優先搭小巴或計程車</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">10/2</span><span class="s-wd">週五</span></td>
+      <td><span class="s-city">格拉納達</span><span class="s-sub">阿罕布拉宮</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>格拉納達大教堂＋皇家禮拜堂</p>
+        <p class="blk"><span class="seg">下午</span>15:30 阿罕布拉宮導覽；傍晚聖尼古拉斯日落</p>
+      </td>
+      <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
+      <td class="c-note"><ul class="notes"><li>不可退款／不可更改；帶護照；集合點 Restaurante La Mimbre</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">10/3</span><span class="s-wd">週六</span></td>
+      <td><span class="s-city">格拉納達</span><span class="s-sub">彈性日</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>阿爾拜辛慢遊／睡飽（大教堂已移 10/2）</p>
+        <p class="blk"><span class="seg">下午</span>休息慢遊或洞窟／白村備選</p>
+      </td>
+      <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
+      <td class="c-note"><ul class="notes"><li>依體力選一項，不勉強趕行程</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">10/4</span><span class="s-wd">週日</span></td>
+      <td><span class="s-city">馬拉加</span><span class="s-sub">海邊收尾</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>格拉納達 → 馬拉加，約 1.5 小時</p>
+        <p class="blk"><span class="seg">下午</span>阿爾卡薩瓦、羅馬劇場、海邊散步</p>
+      </td>
+      <td class="c-stay"><span class="stay">Modern apartment with patio &amp; parking REMS</span></td>
+      <td class="c-note"><ul class="notes"><li>週日 14:00 起城堡免費；晚間先加滿油</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">10/5</span><span class="s-wd">週一</span></td>
+      <td><span class="s-city">返程</span><span class="s-sub">馬拉加 → 阿布達比</span></td>
+      <td>
+        <p class="blk"><span class="seg">清晨</span>06:30–07:00 離開住宿；07:30 還車</p>
+        <p class="blk"><span class="seg">上午</span>09:55 搭機離開馬拉加</p>
+      </td>
+      <td class="c-stay"><span class="stay muted">機上</span></td>
+      <td class="c-note"><ul class="notes"><li>機票視同不可退改；護照與藥品放隨身行李</li></ul></td>
+    </tr>
+    <tr>
+      <td class="c-date"><span class="s-date">10/6</span><span class="s-wd">週二</span></td>
+      <td><span class="s-city">桃園</span><span class="s-sub">抵達</span></td>
+      <td>
+        <p class="blk"><span class="seg">上午</span>10:00 抵達桃園機場</p>
+        <p class="blk"><span class="seg">抵達後</span>領行李、集合、搭車返回新店</p>
+      </td>
+      <td class="c-stay"><span class="stay muted">—</span></td>
+      <td class="c-note"><ul class="notes"><li>接送可退款；取消截止時間未提供</li></ul></td>
+    </tr></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap section--tips">
+  <div class="sec-head"><p class="kicker"><b>05 — Good to Know</b>團員行前提醒</p><h2>旅途中請留意</h2><div class="rule"><i></i></div></div>
+  <ol class="tips">
+    <li>前一晚確認隔天集合時間與地點；有預約的活動務必準時。</li>
+    <li>護照與重要證件隨身攜帶；聖家堂及阿罕布拉宮當日尤其重要。</li>
+    <li>準備好走的鞋、帽子、太陽眼鏡、薄外套與水壺；進入教堂時穿著端莊。</li>
+    <li>安達魯西亞中午炎熱，正午安排午餐或室內休息，傍晚再散步。</li>
+    <li>La Mercè 節慶：9/23–27 巴塞最大慶典（9/24 市定假日），西班牙廣場一帶活動與人潮多；9/24 上蒙特塞拉特的火車改假日班表，換票搭車要更早。晚上有體力可順看免費疊人塔、巨人遊行與音樂會。</li>
+    <li>巴塞隆納蘭布拉大道、地鐵及馬德里太陽門等人潮區，包包前背並留意手機。</li>
+    <li>高鐵提前至少 30 分鐘到站；車票與集合由導遊統一提醒。</li>
+    <li>自駕日上下車前清點物品，貴重物品不要留在車內可見處。</li>
+    <li>備選景點依天氣與體力取消；景點開放與交通變動以導遊當日通知為準。</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <div class="rule"><i></i></div><h3>¡Buen viaje!</h3>
+  <p class="es">15 nights through the south of Spain</p>
+  <p>團員簡易版 · 實際集合時間若有調整，以導遊當日通知為準。<br>巴塞隆納 · 馬德里 · 哥多華 · 賽維亞 · 格拉納達 · 馬拉加 | 2026.09.20 – 10.06</p>
+</footer>
+</body>
+</html>
