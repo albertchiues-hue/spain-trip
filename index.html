@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>西班牙 15 晚深度慢遊 · 團員簡易版</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>西班牙 15 晚深度慢遊 · 行程手冊</title>
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Noto+Serif+TC:wght@500;600;700;900&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#F4EAD7; --paper-2:#FBF4E6; --card:#FCF7EC;
@@ -271,303 +272,466 @@ tbody tr:nth-child(even){background:rgba(188,135,44,.06);}
   tr,.leg,.card-fact,.pass,.note-card,.rail{break-inside:avoid;}
   table,.pass,.card-fact,.schedule-wrap{box-shadow:none;}
 }
-
-  .edition-badge{display:inline-block;margin-top:1.4rem;padding:.42rem 1.15rem;border:1px solid rgba(142,42,34,.35);
-    border-radius:100px;color:var(--wine);background:rgba(255,255,255,.28);font-weight:700;letter-spacing:.2em;font-size:.75rem;}
-  .legend{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin:0 0 1.2rem;}
-  .legend__item{border:1px solid var(--line);background:var(--card);padding:.7rem;border-radius:4px;font-size:.76rem;line-height:1.45;}
-  .status{display:inline-block;min-width:2.1em;margin-right:.35rem;text-align:center;font-weight:700;}
-  .status--locked{color:var(--wine-deep)} .status--deadline{color:var(--ochre-deep)}
-  .status--fee{color:var(--azulejo)} .status--refundable{color:#2c6a49} .status--unknown{color:var(--ink-mute)}
-  .privacy-note{margin-top:1.1rem;padding:.8rem 1rem;border-left:3px solid var(--ochre);background:rgba(188,135,44,.07);
-    color:var(--ink-soft);font-size:.86rem;}
-  .compact td{padding:.52rem .7rem}.compact th{padding:.62rem .7rem}.compact{font-size:.82rem;}
-  .section--restrictions{break-before:page}.section--lodging{break-before:page}.section--tips{break-before:page}
-  .schedule .c-stay{width:132px}.schedule .c-note{width:154px}.schedule .c-city{width:90px}
-  @media(max-width:720px){.legend{grid-template-columns:1fr 1fr}}
-  @media print{
-    .legend{grid-template-columns:repeat(5,1fr)}
-    .legend__item{break-inside:avoid}
-    .section--restrictions,.section--lodging,.section--tips{break-before:page}
-    .compact{font-size:8.5px}
-    .compact td{padding:3.2mm 2.2mm}
-    .schedule{font-size:8.4px}
-    .schedule tbody td{padding:3.5mm 2.2mm}
-    .privacy-note{font-size:8.5px}
-  }
 </style>
 </head>
 <body>
+
+<!-- NAV -->
+<nav class="nav no-print">
+  <div class="nav__in">
+    <div class="nav__brand">ESPAÑA · 2026<small>15 晚深度慢遊</small></div>
+    <div class="nav__links">
+      <a href="#overview">路線</a>
+      <a href="#transport">交通</a>
+      <a href="#schedule">每日行程</a>
+      <a href="#lodging">住宿</a>
+      <a href="#booking">訂票</a>
+      <a href="#tips">提醒</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
 <header class="hero">
-  <div class="hero__sun" aria-hidden="true"></div><div class="hero__stars" aria-hidden="true"></div>
+  <div class="hero__sun" aria-hidden="true"></div>
+  <div class="hero__stars" aria-hidden="true"></div>
   <svg class="hero__arch" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="#BC872C" stroke-width="1">
     <path d="M40 196 V96 a60 60 0 0 1 120 0 V196" stroke-opacity="0.35"/>
     <path d="M52 196 V96 a48 48 0 0 1 96 0 V196" stroke-opacity="0.22"/>
+    <path d="M40 96 a60 60 0 0 0 -8 -14 M160 96 a60 60 0 0 1 8 -14" stroke-opacity="0.3"/>
   </svg>
   <div class="hero__inner">
-    <p class="eyebrow">團員行程手冊 &nbsp;·&nbsp; <span>深度慢遊</span> &nbsp;·&nbsp; 一路向南</p>
+    <p class="eyebrow">私人訂製行程 &nbsp;·&nbsp; <span>深度慢遊</span> &nbsp;·&nbsp; 一路向南</p>
     <h1>西班牙<span class="hero__es">A Slow Journey through España</span></h1>
     <p class="hero__sub">十五晚 · 由北而南 · 不折返</p>
-    <p class="hero__route"><b>BARCELONA</b> · MADRID · CÓRDOBA · SEVILLA · GRANADA · <b>MÁLAGA</b></p>
+    <p class="hero__route">
+      <b>BARCELONA</b> &middot; MADRID &middot; CÓRDOBA &middot; SEVILLA &middot; GRANADA &middot; <b>MÁLAGA</b>
+    </p>
     <div class="hero__meta">
-      <span><i>◆</i> <b>2026.09.20 – 10.06</b></span>
-      <span><i>◆</i> <b>15 晚 17 日</b></span>
-      <span><i>◆</i> <b>團員簡易版</b></span>
+      <span><i>◆</i> <b>2026.09.20 – 10.05</b> 旅遊期間</span>
+      <span><i>◆</i> <b>15 晚 16 天</b></span>
+      <span><i>◆</i> <b>由北而南</b> 不折返</span>
     </div>
-    <div class="edition-badge">不含訂房編號與票務操作資料</div>
   </div>
+  <div class="scroll-cue no-print">Scroll</div>
 </header>
 
-<section class="wrap">
-  <div class="intro">
-    <p class="intro__lede"><span class="dropcap">這</span>是一趟由巴塞隆納一路向南、從馬拉加離境的西班牙慢遊。城市間搭高鐵，安達魯西亞南部自駕；每日保留休息時間，備選景點依天氣與體力調整。
-      <span class="intro__note">本版提供團員閱讀，保留每日活動、集合資訊、住宿、主要交通及取消限制。完整聯絡、票務、付款與操作資料由導遊另行保管。</span>
+<!-- INTRO -->
+<section class="wrap" id="intro">
+  <div class="intro reveal">
+    <p class="intro__lede">
+      <span class="dropcap">這</span>是一趟由北而南的西班牙慢遊：巴塞隆納進、馬拉加出，一路向南不走回頭路。大城市之間以高鐵串連，安達魯西亞南部才自駕。不趕景點、不看美術館——把時間留給陽光、廣場與餐桌。
+      <span class="intro__note">安達魯西亞 9 月底中午炎熱（可達 34°C）：硬景點排上午、正午室內避暑、傍晚再散步；全程採平路、電梯與纜車的好走動線。</span>
     </p>
     <div class="cards">
-      <div class="card-fact"><div class="lab">Dates · 旅行日期</div><div class="val">2026.09.20 – 10.06</div><div class="en">15 nights · 17 calendar days</div></div>
-      <div class="card-fact"><div class="lab">Pace · 節奏</div><div class="val">慢遊不趕</div><div class="en">slow & unhurried</div></div>
+      <div class="card-fact"><div class="lab">Dates · 旅遊期間</div><div class="val">2026.09.20 – 10.05</div><div class="en">15 nights · 16 days</div></div>
+      <div class="card-fact"><div class="lab">Pace · 節奏</div><div class="val">慢遊不趕</div><div class="en">slow &amp; unhurried</div></div>
       <div class="card-fact"><div class="lab">Gateway · 進 / 出</div><div class="val">巴塞隆納 進<br>馬拉加 出</div><div class="en">in BCN · out AGP</div></div>
-      <div class="card-fact"><div class="lab">Must-see · 必訪</div><div class="val">聖家堂 · 梅斯基塔<br>阿罕布拉宮</div><div class="en">the three jewels</div></div>
+      <div class="card-fact"><div class="lab">Must-see · 必訪</div><div class="val">聖家堂 · 阿罕布拉宮 · 梅斯基塔</div><div class="en">the three jewels</div></div>
     </div>
   </div>
-  <div class="sec-head" style="margin-top:12mm">
-    <p class="kicker"><b>01 — The Route</b>路線總覽</p><h2>一路向南的旅程</h2><div class="rule"><i></i></div>
+</section>
+
+<!-- OVERVIEW / JOURNEY -->
+<section class="wrap section--overview" id="overview">
+  <div class="sec-head reveal">
+    <p class="kicker"><b>01 — The Route</b>路線總覽</p>
+    <h2>一路向南的旅程</h2>
+    <div class="rule"><i></i></div>
   </div>
-  <div class="journey">
-    <div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">巴塞隆納</span><span class="leg__en">Barcelona</span><span class="leg__nights">5 晚 · 9/20–24</span></div><p class="leg__hi">哥德區、海濱、聖家堂、奎爾公園、蒙特塞拉特</p><span class="leg__move">高鐵 → 馬德里</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">馬德里</span><span class="leg__en">Madrid</span><span class="leg__nights">2 晚 · 9/25–26</span></div><p class="leg__hi">麗池公園、主廣場、皇宮、佛朗明哥</p><span class="leg__move">高鐵 → 哥多華</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">哥多華</span><span class="leg__en">Córdoba</span><span class="leg__nights">1 晚 · 9/27</span></div><p class="leg__hi">梅斯基塔、羅馬橋、猶太區、百花巷</p><span class="leg__move">高鐵 → 賽維亞</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">賽維亞</span><span class="leg__en">Sevilla</span><span class="leg__nights">3 晚 · 9/28–30</span></div><p class="leg__hi">王宮、大教堂、西班牙廣場、隆達一日遊</p><span class="leg__move">自駕 → 格拉納達</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">格拉納達</span><span class="leg__en">Granada</span><span class="leg__nights">3 晚 · 10/1–3</span></div><p class="leg__hi">阿罕布拉宮、阿爾拜辛、大教堂、彈性活動</p><span class="leg__move">自駕 → 馬拉加</span></div><div class="leg"><span class="leg__dot"></span><div class="leg__top"><span class="leg__city">馬拉加</span><span class="leg__en">Málaga</span><span class="leg__nights">1 晚 · 10/4</span></div><p class="leg__hi">阿爾卡薩瓦、羅馬劇場、海邊散步</p><span class="leg__move">10/5 搭機返程</span></div>
+  <div class="journey reveal">
+    <div class="leg">
+      <span class="leg__dot"></span>
+      <div class="leg__top"><span class="leg__city">巴塞隆納</span><span class="leg__en">Barcelona</span><span class="leg__nights">5 晚 · 9/20–24</span></div>
+      <p class="leg__hi">哥德區、海濱、聖家堂、聖保羅醫院、奎爾公園、蒙特惠克、蒙特塞拉特一日遊</p>
+      <span class="leg__move">高鐵 AVE / iryo → 馬德里</span>
+    </div>
+    <div class="leg">
+      <span class="leg__dot"></span>
+      <div class="leg__top"><span class="leg__city">馬德里</span><span class="leg__en">Madrid</span><span class="leg__nights">2 晚 · 9/25–26</span></div>
+      <p class="leg__hi">麗池公園、主廣場、皇宮＋衛兵交接、Corral de la Morería 佛朗明哥晚餐秀</p>
+      <span class="leg__move">高鐵 → 哥多華</span>
+    </div>
+    <div class="leg">
+      <span class="leg__dot"></span>
+      <div class="leg__top"><span class="leg__city">哥多華</span><span class="leg__en">Córdoba</span><span class="leg__nights">1 晚 · 9/27</span></div>
+      <p class="leg__hi">梅斯基塔、羅馬橋、猶太區、百花巷</p>
+      <span class="leg__move">高鐵 → 賽維亞</span>
+    </div>
+    <div class="leg">
+      <span class="leg__dot"></span>
+      <div class="leg__top"><span class="leg__city">賽維亞</span><span class="leg__en">Sevilla</span><span class="leg__nights">3 晚 · 9/28–30</span></div>
+      <p class="leg__hi">王宮＋大教堂、西班牙廣場、隆達一日遊（自駕）</p>
+      <span class="leg__move">自駕 → 格拉納達</span>
+    </div>
+    <div class="leg">
+      <span class="leg__dot"></span>
+      <div class="leg__top"><span class="leg__city">格拉納達</span><span class="leg__en">Granada</span><span class="leg__nights">3 晚 · 10/1–3</span></div>
+      <p class="leg__hi">阿罕布拉宮、阿爾拜辛、大教堂＋皇家禮拜堂、彈性一日遊</p>
+      <span class="leg__move">自駕 → 馬拉加</span>
+    </div>
+    <div class="leg">
+      <span class="leg__dot"></span>
+      <div class="leg__top"><span class="leg__city">馬拉加</span><span class="leg__en">Málaga</span><span class="leg__nights">1 晚 · 10/4</span></div>
+      <p class="leg__hi">阿爾卡薩瓦城堡、羅馬劇場、港邊海鮮收尾 → 10/5 EY108 返程</p>
+    </div>
   </div>
 </section>
 
-<section class="wrap section--restrictions">
-  <div class="sec-head"><p class="kicker"><b>02 — Booking Rules</b>預訂限制</p><h2>不可退改與取消期限</h2><div class="rule"><i></i></div></div>
-  <div class="legend">
-    <div class="legend__item"><b>🔒 視同不可退改</b><br>行程不可任意移動</div>
-    <div class="legend__item"><b>⏳ 有取消期限</b><br>逾期扣款或不退款</div>
-    <div class="legend__item"><b>↔ 退改需付費</b><br>有手續費或票價差</div>
-    <div class="legend__item"><b>✅ 可退款</b><br>截止時間未必已提供</div>
-    <div class="legend__item"><b>❓ 條款未載明</b><br>須先向供應商確認</div>
+<!-- TRANSPORT -->
+<section class="wrap section--transport" id="transport">
+  <div class="sec-head reveal">
+    <p class="kicker"><b>02 — Logistics</b>交通資訊</p>
+    <h2>航班 · 高鐵 · 租車</h2>
+    <div class="rule"><i></i></div>
   </div>
-  <table class="booking compact">
-    <thead><tr><th>預訂項目</th><th>日期／範圍</th><th>取消與修改條件</th></tr></thead>
-    <tbody><tr><td>國際機票</td><td>去程 EK387／EK185、回程 EY108／EY898</td><td><span class="status status--locked">🔒</span>已出票；退票成本過高，視同不可退款／不可修改</td></tr><tr><td>固定住宿</td><td>巴塞隆納、馬德里、賽維亞、格拉納達</td><td><span class="status status--locked">🔒</span>不可退款；部分亦不可更改日期</td></tr><tr><td>哥多華住宿</td><td>9/27，共 1 晚</td><td><span class="status status--deadline">⏳ </span>2026/9/12 23:59 前免費取消（住宿當地時間）；之後收全額</td></tr><tr><td>馬拉加住宿</td><td>10/4，共 1 晚</td><td><span class="status status--deadline">⏳ </span>2026/9/5 23:59 前免費取消（住宿當地時間）；之後開始收取消費用</td></tr><tr><td>巴塞隆納 → 馬德里高鐵</td><td>9/25 12:14</td><td><span class="status status--refundable">✅ </span>iryo Infinita 彈性票，可退改（依 iryo 官方條款）</td></tr><tr><td>馬德里 → 哥多華高鐵</td><td>9/27 11:35</td><td><span class="status status--fee">↔ </span>退票扣 30%；最晚發車前 5 分鐘辦理</td></tr><tr><td>哥多華 → 賽維亞高鐵</td><td>9/28 12:48</td><td><span class="status status--fee">↔ </span>退票扣 30%；須於發車前辦理</td></tr><tr><td>聖家堂導覽＋登塔</td><td>9/22 14:15</td><td><span class="status status--deadline">⏳ </span>2026/9/21 14:15 CEST 前免費取消；之後不退款、不接受更改</td></tr><tr><td>奎爾公園入場</td><td>9/23 10:30</td><td><span class="status status--locked">🔒</span>官方票不可退款、不可更改；入場限時段後 30 分鐘內</td></tr><tr><td>蒙特塞拉特套票</td><td>使用日期不限</td><td><span class="status status--deadline">⏳ </span>依憑證推算 2026/6/29 前可免費取消，且票券須未使用；未載明截止時刻</td></tr><tr><td>馬德里皇宮＋Gallery</td><td>9/26 14:00</td><td><span class="status status--unknown">❓ </span>已購；票券未載明退改條款，視同不可退改</td></tr><tr><td>佛朗明哥晚餐秀</td><td>9/26 18:30</td><td><span class="status status--deadline">⏳ </span>2026/9/25 18:30（馬德里當地時間）前可取消</td></tr><tr><td>賽維亞王宮＋皇家上層公寓</td><td>9/29 10:00／11:00</td><td><span class="status status--locked">🔒</span>購票後不可退款或更換</td></tr><tr><td>阿罕布拉宮導覽</td><td>10/2 15:30</td><td><span class="status status--locked">🔒</span>不可退款、不可更改；15:30 為與 operator 更新後時間</td></tr><tr><td>巴塞隆納機場接機</td><td>9/20 13:25 抵達後</td><td><span class="status status--deadline">⏳ </span>2026/9/19 13:25（西班牙當地時間）前免費取消</td></tr><tr><td>桃園送機、桃園接機</td><td>9/19、10/6</td><td><span class="status status--refundable">✅ </span>可退款；取消截止時間未提供</td></tr><tr><td>Centauro 租車</td><td>9/30 09:00 取車</td><td><span class="status status--deadline">⏳ </span>2026/9/29 09:00（西班牙當地時間）前可取消，即取車前 24 小時</td></tr></tbody>
+
+  <div class="t-grid reveal">
+    <div class="pass">
+      <div class="pass__stub">去程 · OUTBOUND</div>
+      <div class="pass__body">
+        <div class="r">TPE → DXB → BCN · Emirates</div>
+        <div class="m">9/20 &nbsp;TPE 00:30 EK387 → 杜拜轉機 → 9/20 13:25 抵巴塞隆納</div>
+        <div class="d">杜拜轉機 <b>EK185</b> 續飛 BCN；須同一張票、行李直掛 BCN。<span class="warn">請再確認杜拜轉機銜接時間</span>；前一晚 9/19 21:45 肯驛商務車出門、約 22:30 抵桃機（距起飛約 2h，Emirates 櫃檯前 60 分關）。</div>
+      </div>
+    </div>
+    <div class="pass">
+      <div class="pass__stub">回程 · RETURN</div>
+      <div class="pass__body">
+        <div class="r">AGP → AUH · Etihad Airways</div>
+        <div class="m">10/5 &nbsp;馬拉加 EY108 起飛 09:55 → 阿布達比轉機</div>
+        <div class="d">EY108 <b>僅週一／三／六</b>飛；10/5 為週一、適用。國際線提早到、前一晚加滿油並早睡。</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="rail reveal">
+    <caption>高鐵三段　★ = 目標班次</caption>
+    <thead><tr><th>日期</th><th>路段</th><th>目標班次</th><th>車程</th><th>當日營運型態</th></tr></thead>
+    <tbody>
+      <tr><td>9/25（五）</td><td>巴塞 Sants → 馬德里 Atocha</td><td><span class="star">✅ 已購 12:14 → 15:16</span>（iryo 06320・Infinita）</td><td>3h02</td><td>Infinita 含餐；Localizador 略・2 車 10A/10B/10D</td></tr>
+      <tr><td>9/27（日）</td><td>馬德里 Atocha → 哥多華 Córdoba</td><td><span class="star">✅ 已購 11:35 → 13:19</span>（AVE 02112）</td><td>1h44</td><td>退票扣 30%、最晚發車前 5 分鐘；Localizador 略</td></tr>
+      <tr><td>9/28（一）</td><td>哥多華 → 賽維亞 Sta Justa</td><td><span class="star">✅ 已購 12:48 → 13:41</span>（AVE 02110）</td><td>53 分</td><td>退票扣 30%、須於發車前辦理；Localizador 略</td></tr>
+    </tbody>
   </table>
-  <p class="privacy-note"><b>團員版原則：</b>只顯示行程必要資訊，不顯示訂單號、訂房確認碼、PIN、付款資料、票券檔名或供應商操作資料。</p>
+
+  <div class="note-card reveal">
+    <span class="h">租車 · Car Hire</span>
+    Centauro；9/30 09:00 賽維亞機場取車 → 10/5 07:30 馬拉加機場還車，共 5 天；Citroën C3 Aircross 或同級。市區不開車：巴塞／馬德里／哥多華。
+    <b>※ 取消期限 9/29 09:00 前</b>（取車前 24 小時）；<b>※ 9/30 賽維亞需過夜停車</b>（POP ART Conde Negro 私人停車 ✅已確認，€15/day，勿停 ZBE 限行區）；
+    <b>※ 取車含 SmartKey</b>，P2 接駁至辦公室、停車場 locker 取鑰匙；<b>※ 10/4 傍晚加滿油、10/5 一早機場還車。</b>
+  </div>
 </section>
 
-<section class="wrap section--lodging">
-  <div class="sec-head"><p class="kicker"><b>03 — Stay & Move</b>住宿與交通</p><h2>已訂住宿 · 主要移動</h2><div class="rule"><i></i></div></div>
-  <table class="booking compact">
-    <caption>住宿一覽</caption>
-    <thead><tr><th>城市</th><th>住宿日期</th><th>住宿名稱</th><th>取消／退款</th></tr></thead>
-    <tbody><tr><td>巴塞隆納</td><td>9/20–9/24 · 5 晚</td><td>Sweett - Casa Bailen</td><td><span class="status status--locked">🔒</span>不可退款／不可更改</td></tr><tr><td>馬德里</td><td>9/25–9/26 · 2 晚</td><td>奧古斯托慢慢套房公寓</td><td><span class="status status--locked">🔒</span>不可退款／不可更改</td></tr><tr><td>哥多華</td><td>9/27 · 1 晚</td><td>Noches de Córdoba</td><td><span class="status status--deadline">⏳ </span>9/12 23:59 前免費取消；之後收全額</td></tr><tr><td>賽維亞</td><td>9/28–9/30 · 3 晚</td><td>POP ART Conde Negro de Sevilla</td><td><span class="status status--locked">🔒</span>不可退款／不可更改</td></tr><tr><td>格拉納達</td><td>10/1–10/3 · 3 晚</td><td>拉卡斯塔德爾喀拉隆旅館</td><td><span class="status status--locked">🔒</span>不可退款</td></tr><tr><td>馬拉加</td><td>10/4 · 1 晚</td><td>Modern apartment with patio &amp; parking REMS</td><td><span class="status status--deadline">⏳ </span>9/5 23:59 前免費取消；之後開始收取消費用</td></tr></tbody>
-  </table>
-  <div style="height:8mm"></div>
-  <table class="rail compact">
-    <caption>主要交通</caption>
-    <thead><tr><th>日期</th><th>交通</th><th>取消／退款</th></tr></thead>
-    <tbody><tr><td>9/19（六）</td><td>21:45 新店出發 → 桃園機場</td><td><span class="status status--refundable">✅ </span>接送可退款；取消截止時間未提供</td></tr><tr><td>9/20（日）</td><td>00:30 桃園起飛，杜拜轉機；13:25 抵達巴塞隆納並接機</td><td><span class="status status--locked">🔒</span>機票視同不可退改；⏳ 接機 9/19 13:25 前免費取消</td></tr><tr><td>9/25（五）</td><td>12:14 巴塞隆納 Sants → 15:16 馬德里 Atocha（iryo 06320・Infinita）</td><td><span class="status status--refundable">✅ </span>已購 €94.65×3</td></tr><tr><td>9/27（日）</td><td>11:35 馬德里 Atocha → 13:19 哥多華</td><td><span class="status status--fee">↔ </span>退票扣 30%；最晚發車前 5 分鐘</td></tr><tr><td>9/28（一）</td><td>12:48 哥多華 → 13:41 賽維亞 Santa Justa</td><td><span class="status status--fee">↔ </span>退票扣 30%；須於發車前辦理</td></tr><tr><td>9/30（三）</td><td>09:00 賽維亞機場取車，開始南部自駕</td><td><span class="status status--deadline">⏳ </span>9/29 09:00 前可取消</td></tr><tr><td>10/5（一）</td><td>07:30 馬拉加機場還車；09:55 搭機前往阿布達比</td><td><span class="status status--deadline">⏳ </span>租車期限 9/29 09:00；🔒 機票視同不可退改</td></tr><tr><td>10/6（二）</td><td>10:00 抵達桃園，安排接送返家</td><td><span class="status status--locked">🔒</span>機票視同不可退改；✅ 接送可退款</td></tr></tbody>
-  </table>
-</section>
-
-<section class="wrap section--schedule">
-  <div class="sec-head"><p class="kicker"><b>04 — Day by Day</b>每日精簡行程</p><h2>十七日 · 每日安排</h2><div class="rule"><i></i></div></div>
-  <div class="schedule-wrap">
+<!-- SCHEDULE -->
+<section class="wrap section--schedule" id="schedule">
+  <div class="sec-head reveal">
+    <p class="kicker"><b>03 — Day by Day</b>每日詳細行程</p>
+    <h2>十六天 · 每日安排</h2>
+    <div class="rule"><i></i></div>
+  </div>
+  <div class="schedule-wrap reveal">
     <table class="schedule">
-      <thead><tr><th class="c-date">日期</th><th class="c-city">城市 / 路線</th><th>每日重點</th><th class="c-stay">住宿點</th><th class="c-note">團員提醒</th></tr></thead>
+      <thead><tr>
+        <th class="c-date">日期</th><th class="c-city">城市 / 路線</th>
+        <th>每日行程（上午 · 下午 · 晚上）</th><th class="c-stay">住宿點</th><th class="c-note">備註</th>
+      </tr></thead>
       <tbody>
-    <tr>
-      <td class="c-date"><span class="s-date">9/20</span><span class="s-wd">週日</span></td>
-      <td><span class="s-city">巴塞隆納</span><span class="s-sub">抵達 · 海濱</span></td>
-      <td>
-        <p class="blk"><span class="seg">下午</span>13:25 抵達巴塞隆納，接機、入住、休息</p>
-        <p class="blk"><span class="seg">傍晚</span>巴塞隆納塔海灘散步；晚 7 Portes 19:00</p>
-      </td>
-      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
-      <td class="c-note"><ul class="notes"><li>機票視同不可退改；接機 9/19 13:25 前免費取消</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/21</span><span class="s-wd">週一</span></td>
-      <td><span class="s-city">巴塞隆納</span><span class="s-sub">哥德區慢遊</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>哥德區、中世紀街區；順逛波蓋利亞市場</p>
-        <p class="blk"><span class="seg">晚上</span>蘭布拉大道散步與晚餐</p>
-      </td>
-      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
-      <td class="c-note"><ul class="notes"><li>市場排上午（週一部分魚攤休）；低強度調時差</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/22</span><span class="s-wd">週二</span></td>
-      <td><span class="s-city">巴塞隆納</span><span class="s-sub">高第經典</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>感恩大道（巴特婁之家／米拉之家外觀，約 30–45 分）；早上人潮較少</p>
-        <p class="blk"><span class="seg">下午</span>14:15–16:15 聖家堂導覽與登塔（14:05 集合）→ 聖保羅醫院（週二至 18:30）；晚 Paco Meralgo 20:00</p>
-      </td>
-      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
-      <td class="c-note"><ul class="notes"><li>帶護照；Paco 勿晚於 20:15；9/21 14:15 CEST 前免費取消</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/23</span><span class="s-wd">週三</span></td>
-      <td><span class="s-city">巴塞隆納</span><span class="s-sub">公園與山景</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>奎爾公園 10:30 入場</p>
-        <p class="blk"><span class="seg">下午</span>蒙特惠克山、纜車；晚魔幻噴泉（開頭即撤）</p>
-      </td>
-      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
-      <td class="c-note"><ul class="notes"><li>9/23 La Mercè 開幕，噴泉以現場為準；較費體力</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/24</span><span class="s-wd">週四</span></td>
-      <td><span class="s-city">蒙特塞拉特</span><span class="s-sub">一日遊</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>R5＋齒軌火車上山；修道院、黑面聖母</p>
-        <p class="blk"><span class="seg">下午</span>13:00 男童合唱團；約 16:00–16:30 下山</p>
-      </td>
-      <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
-      <td class="c-note"><ul class="notes"><li>9/24 La Mercè 假日班表，換票搭車要更早；套票日期不限</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/25</span><span class="s-wd">週五</span></td>
-      <td><span class="s-city">馬德里</span><span class="s-sub">高鐵移動</span></td>
-      <td>
-        <p class="blk"><span class="seg">中午</span>12:14 巴塞 Sants → 15:16 馬德里（iryo 已購）</p>
-        <p class="blk"><span class="seg">下午</span>麗池公園；晚太陽門＋Casa Lucio 20:00</p>
-      </td>
-      <td class="c-stay"><span class="stay">奧古斯托慢慢套房公寓</span></td>
-      <td class="c-note"><ul class="notes"><li>提早 30 分鐘到站</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/26</span><span class="s-wd">週六</span></td>
-      <td><span class="s-city">馬德里</span><span class="s-sub">舊城 · 佛朗明哥</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>主廣場、聖米格爾市場、皇宮衛兵交接</p>
-        <p class="blk"><span class="seg">下午</span>14:00 皇宮（已購）；晚 18:30 Corral 佛朗明哥晚餐秀</p>
-      </td>
-      <td class="c-stay"><span class="stay">奧古斯托慢慢套房公寓</span></td>
-      <td class="c-note"><ul class="notes"><li>皇宮票已購 14:00；9/25 18:30 前可取消佛朗明哥</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/27</span><span class="s-wd">週日</span></td>
-      <td><span class="s-city">哥多華</span><span class="s-sub">高鐵移動</span></td>
-      <td>
-        <p class="blk"><span class="seg">中午</span>11:35 馬德里 → 13:19 哥多華</p>
-        <p class="blk"><span class="seg">下午</span>16:30 梅斯基塔；傍晚羅馬橋、晚 Bodegas Mezquita 19:30</p>
-      </td>
-      <td class="c-stay"><span class="stay">Noches de Córdoba</span></td>
-      <td class="c-note"><ul class="notes"><li>高鐵退票扣 30%；餐廳勿晚於 19:45</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/28</span><span class="s-wd">週一</span></td>
-      <td><span class="s-city">賽維亞</span><span class="s-sub">高鐵移動</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>猶太區、百花巷</p>
-        <p class="blk"><span class="seg">中午</span>12:48 哥多華 → 13:41 賽維亞；晚上西班牙廣場</p>
-      </td>
-      <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
-      <td class="c-note"><ul class="notes"><li>高鐵退票扣 30%；須於發車前辦理</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/29</span><span class="s-wd">週二</span></td>
-      <td><span class="s-city">賽維亞</span><span class="s-sub">王宮 · 大教堂</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>10:00 王宮；11:00 皇家上層公寓</p>
-        <p class="blk"><span class="seg">下午</span>大教堂、都市陽傘；晚上河岸</p>
-      </td>
-      <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
-      <td class="c-note"><ul class="notes"><li>王宮票不可退款或更換；10:45 前到公寓入口</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">9/30</span><span class="s-wd">週三</span></td>
-      <td><span class="s-city">隆達</span><span class="s-sub">一日遊 · 自駕</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>09:00 取車，自駕前往隆達</p>
-        <p class="blk"><span class="seg">下午</span>新橋、峽谷、舊城；塞特尼爾視體力</p>
-      </td>
-      <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
-      <td class="c-note"><ul class="notes"><li>租車 9/29 09:00 前可取消</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">10/1</span><span class="s-wd">週四</span></td>
-      <td><span class="s-city">格拉納達</span><span class="s-sub">自駕移動</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>賽維亞 → 格拉納達，約 2.5 小時</p>
-        <p class="blk"><span class="seg">傍晚</span>阿爾拜辛；晚 Mirador de Morayma 19:30（露台）</p>
-      </td>
-      <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
-      <td class="c-note"><ul class="notes"><li>停車位已確認；坡度較大，優先搭小巴或計程車</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">10/2</span><span class="s-wd">週五</span></td>
-      <td><span class="s-city">格拉納達</span><span class="s-sub">阿罕布拉宮</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>格拉納達大教堂＋皇家禮拜堂</p>
-        <p class="blk"><span class="seg">下午</span>15:30 阿罕布拉宮導覽；傍晚聖尼古拉斯日落</p>
-      </td>
-      <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
-      <td class="c-note"><ul class="notes"><li>不可退款／不可更改；帶護照；集合點 Restaurante La Mimbre</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">10/3</span><span class="s-wd">週六</span></td>
-      <td><span class="s-city">格拉納達</span><span class="s-sub">彈性日</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>阿爾拜辛慢遊／睡飽（大教堂已移 10/2）</p>
-        <p class="blk"><span class="seg">下午</span>休息慢遊或洞窟／白村備選</p>
-      </td>
-      <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
-      <td class="c-note"><ul class="notes"><li>依體力選一項，不勉強趕行程</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">10/4</span><span class="s-wd">週日</span></td>
-      <td><span class="s-city">馬拉加</span><span class="s-sub">海邊收尾</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>格拉納達 → 馬拉加，約 1.5 小時</p>
-        <p class="blk"><span class="seg">下午</span>阿爾卡薩瓦、羅馬劇場、海邊散步</p>
-      </td>
-      <td class="c-stay"><span class="stay">Modern apartment with patio &amp; parking REMS</span></td>
-      <td class="c-note"><ul class="notes"><li>週日 14:00 起城堡免費；晚間先加滿油</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">10/5</span><span class="s-wd">週一</span></td>
-      <td><span class="s-city">返程</span><span class="s-sub">馬拉加 → 阿布達比</span></td>
-      <td>
-        <p class="blk"><span class="seg">清晨</span>06:30–07:00 離開住宿；07:30 還車</p>
-        <p class="blk"><span class="seg">上午</span>09:55 搭機離開馬拉加</p>
-      </td>
-      <td class="c-stay"><span class="stay muted">機上</span></td>
-      <td class="c-note"><ul class="notes"><li>機票視同不可退改；護照與藥品放隨身行李</li></ul></td>
-    </tr>
-    <tr>
-      <td class="c-date"><span class="s-date">10/6</span><span class="s-wd">週二</span></td>
-      <td><span class="s-city">桃園</span><span class="s-sub">抵達</span></td>
-      <td>
-        <p class="blk"><span class="seg">上午</span>10:00 抵達桃園機場</p>
-        <p class="blk"><span class="seg">抵達後</span>領行李、集合、搭車返回新店</p>
-      </td>
-      <td class="c-stay"><span class="stay muted">—</span></td>
-      <td class="c-note"><ul class="notes"><li>接送可退款；取消截止時間未提供</li></ul></td>
-    </tr></tbody>
+        <tr>
+          <td class="c-date"><span class="s-date">9/20</span><span class="s-wd">週日</span></td>
+          <td><span class="s-city">巴塞隆納</span><span class="s-sub">抵達 · 海濱</span></td>
+          <td>
+            <p class="blk"><span class="seg">凌晨</span>TPE 00:30 EK387 出發 → 杜拜 DXB 轉機（前一晚 9/19 21:45 肯驛商務車出門）</p>
+            <p class="blk"><span class="seg">午後</span>轉 EK185 → 13:25 抵巴塞隆納；入住寄行李、休息</p>
+            <p class="blk"><span class="seg">傍晚</span>巴塞隆納塔海灘 Barceloneta＋舊港 Port Vell 海濱散步（平路、夕陽）</p>
+            <p class="blk"><span class="seg">晚餐</span>✅ 7 Portes 19:00（Port Vell 旁百年名店，招牌海鮮飯 Paella Parellada，與散步順路）</p>
+          </td>
+          <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+          <td class="c-note"><ul class="notes"><li>杜拜轉機：同票、行李直掛 BCN；再確認轉機銜接時間。</li><li>當天低強度、徹底休息調時差。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/21</span><span class="s-wd">週一</span></td>
+          <td><span class="s-city">巴塞隆納</span><span class="s-sub">哥德區慢遊</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>哥德區 Barri Gòtic 慢走（羅馬遺跡＋中世紀石板巷弄）→ 順逛波蓋利亞市場 La Boqueria（買現切水果火腿當早午餐）</p>
+            <p class="blk"><span class="seg">下午</span>回飯店午休、調時差</p>
+            <p class="blk"><span class="seg">晚上</span>蘭布拉大道 La Rambla 短散步＋tapas</p>
+          </td>
+          <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+          <td class="c-note"><ul class="notes"><li>接續調時差，仍走低強度。</li><li>波蓋利亞市場約 20:30 關、週一部分魚攤休，故排上午逛。</li><li>備選：午後順走隔壁 El Born＋聖卡特琳娜市場、加泰隆尼亞音樂宮（導覽需先訂）。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/22</span><span class="s-wd">週二</span></td>
+          <td><span class="s-city">巴塞隆納</span><span class="s-sub">高第經典</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>感恩大道 Passeig de Gràcia（巴特婁之家 → 米拉之家外觀，約 30–45 分）；以外觀為主，早上人潮較少</p>
+            <p class="blk"><span class="seg">下午</span>✅ 14:15–16:15 聖家堂 Sagrada Família 英文導覽＋登塔（IBE TOURS，1.5–2h；14:05 集合）→ 步行 10 分 聖保羅醫院 Hospital de Sant Pau（週二 9:30–18:30，末次入場 18:00）</p>
+            <p class="blk"><span class="seg">晚上</span>✅ Paco Meralgo 20:00（人氣高檔 tapas，Zona Muntaner；⚠️ 勿晚於 20:15）</p>
+          </td>
+          <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+          <td class="c-note"><ul class="notes"><li>✅ 已訂 9/22 14:15–16:15 IBE 導覽＋登塔；9/21 14:15 前免費取消。14:05 先換實體票，集合 Mallorca×Marina「Meeting point 3·綠標」。</li><li>務必帶全員護照、穿著端莊；登塔搭電梯上、走樓梯下。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/23</span><span class="s-wd">週三</span></td>
+          <td><span class="s-city">巴塞隆納</span><span class="s-sub">公園與山景</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>✅ 奎爾公園 Park Güell 10:30 入場（已訂；計程車到入口較省力）</p>
+            <p class="blk"><span class="seg">下午</span>蒙特惠克山 Montjuïc（纜車上下免爬坡，城堡＋觀景）；可搭舊港纜車 Telefèric del Port（Barceloneta ↔ Miramar，約 8 分、70–90m 看港景）</p>
+            <p class="blk"><span class="seg">晚上</span>魔幻噴泉水舞秀（夏季週三–日 21:30–22:30，9/23 有場；看開頭即撤）</p>
+          </td>
+          <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+          <td class="c-note"><ul class="notes"><li>全程最操的一天，節奏放最慢。</li><li><span class="warn">9/23 La Mercè 開幕</span>：西班牙廣場一帶人潮爆滿、噴泉個別場次可能被活動取代，當天查 barcelona.cat。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/24</span><span class="s-wd">週四</span></td>
+          <td><span class="s-city">蒙特塞拉特</span><span class="s-sub">一日遊</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>西班牙廣場搭 R5 → 齒軌火車 Cremallera 上山；修道院與黑面聖母 La Moreneta</p>
+            <p class="blk"><span class="seg">下午</span>山區觀景（不走長步道），午後回巴塞</p>
+            <p class="blk"><span class="seg">晚上</span>市區晚餐，整理行李</p>
+          </td>
+          <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
+          <td class="c-note"><ul class="notes"><li><span class="warn">9/24 La Mercè 巴塞市定假日</span>：FGC 改假日班表，換票（08:00 一開就去）與搭車都要更早。</li><li>✅ TransMontserrat 已購（齒軌火車版，共 3 張）；西班牙廣場 Montserrat Welcoming Point 08:00–14:00 換實體票。</li><li>12:30 提早卡位 → 13:00 男童合唱團 Escolania 唱 Virolai；出發前上官網查當週是否演出。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/25</span><span class="s-wd">週五</span></td>
+          <td><span class="s-city">馬德里</span><span class="s-sub">高鐵移動</span></td>
+          <td>
+            <p class="blk"><span class="seg">中午</span>✅ 高鐵 巴塞 Sants 12:14 → 馬德里 Atocha 15:16（iryo 06320・Infinita 含餐）→ 15:00 起 check-in</p>
+            <p class="blk"><span class="seg">下午</span>麗池公園 Parque del Retiro（鄰車站、平路）</p>
+            <p class="blk"><span class="seg">晚上</span>太陽門廣場 Puerta del Sol → ✅ Casa Lucio 20:00（百年老店招牌「破蛋薯條」，La Latina）</p>
+          </td>
+          <td class="c-stay"><span class="stay">奧古斯托慢慢套房公寓</span></td>
+          <td class="c-note"><ul class="notes"><li>Localizador 略・2 車 10A/10B/10D；提早 30 分到站。</li><li>午餐在車上（Infinita 含餐）解決。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/26</span><span class="s-wd">週六</span></td>
+          <td><span class="s-city">馬德里</span><span class="s-sub">西半城一線</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>主廣場 Plaza Mayor＋聖米格爾市場（午餐）；約 12:00 看皇宮衛兵交接</p>
+            <p class="blk"><span class="seg">下午</span>✅ 14:00 馬德里皇宮 Visit To The Palace + Gallery（已購）＋阿穆德納主教座堂</p>
+            <p class="blk"><span class="seg">晚上</span>✅ 18:30 Corral de la Morería 佛朗明哥 DINNER + SHOW（德波神廟日落改備選）</p>
+          </td>
+          <td class="c-stay"><span class="stay">奧古斯托慢慢套房公寓</span></td>
+          <td class="c-note"><ul class="notes"><li>衛兵交接：週六 11:00–14:00、免費。</li><li>✅ 已購皇宮票 14:00（Order ID 略，Palace＋Gallery 套票、含皇家收藏藝廊臨展）；退改條款未載明、視同不可退改。</li><li>✅ 已訂佛朗明哥晚餐秀（訂位號 略）；9/25 18:30 前可取消，門口出示訂位號。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/27</span><span class="s-wd">週日</span></td>
+          <td><span class="s-city">哥多華</span><span class="s-sub">高鐵移動</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>退房→Atocha；✅ 高鐵 11:35 → 哥多華 13:19（AVE 02112）；寄行李＋午餐</p>
+            <p class="blk"><span class="seg">下午</span>正午室內避暑；16:30 梅斯基塔 Mezquita-Catedral（€13）</p>
+            <p class="blk"><span class="seg">傍晚</span>羅馬橋 Puente Romano 看金色時刻（日落約 19:50，19:00–19:25 上橋）</p>
+            <p class="blk"><span class="seg">晚餐</span>✅ Bodegas Mezquita（Céspedes 店）19:30（緊鄰梅斯基塔；⚠️ 勿晚於 19:45、桌位 1.5h）</p>
+          </td>
+          <td class="c-stay"><span class="stay">Noches de Córdoba</span></td>
+          <td class="c-note"><ul class="notes"><li>正午 30–34°C 避熱。</li><li>梅斯基塔週日下午場 15–19，已查證正確。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/28</span><span class="s-wd">週一</span></td>
+          <td><span class="s-city">賽維亞</span><span class="s-sub">高鐵移動</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>猶太區 Judería＋百花巷（涼爽）；退房寄行李</p>
+            <p class="blk"><span class="seg">下午</span>✅ 高鐵 哥多華 12:48 → 賽維亞 13:41（AVE 02110，53 分）；舊城午餐→15:00 check-in→聖十字區 Santa Cruz 散步</p>
+            <p class="blk"><span class="seg">晚上</span>西班牙廣場＋瑪麗亞路易莎公園（黃金時刻，免費）</p>
+          </td>
+          <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
+          <td class="c-note"><ul class="notes"><li>退房 11:00→火車 12:48 約 1.5h：先寄行李再逛猶太區（建議前一晚線上訂 Stasher／Bounce）。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/29</span><span class="s-wd">週二</span></td>
+          <td><span class="s-city">賽維亞</span><span class="s-sub">重頭戲</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>✅ 王宮 Real Alcázar＋皇家上層公寓（獅門入，10:00 入園、11:00 上層公寓）</p>
+            <p class="blk"><span class="seg">下午</span>午餐避暑 → 大教堂＋吉拉達塔 Catedral + Giralda（出王宮走 3 分；可不登塔）；都市陽傘 Setas 全景（電梯）</p>
+            <p class="blk"><span class="seg">晚上</span>三角區 Triana／黃金塔河岸夕陽＋晚餐</p>
+          </td>
+          <td class="c-stay"><span class="stay">POP ART Conde Negro</span></td>
+          <td class="c-note"><ul class="notes"><li>✅ 王宮＋上層公寓已訂、不可退款；上層公寓 10:45 到場。</li><li>11:00 要在王宮上層公寓 Cuarto Real Alto，大教堂改排午後；先訂票、可不登塔。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">9/30</span><span class="s-wd">週三</span></td>
+          <td><span class="s-city">隆達</span><span class="s-sub">一日遊 · 自駕</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>09:00 賽維亞機場 Centauro 取車（P2 接駁＋SmartKey）→ 自駕隆達 1h45；新橋 Puente Nuevo＋峽谷觀景台</p>
+            <p class="blk"><span class="seg">下午</span>鬥牛場＋舊城白牆巷；回程順遊塞特尼爾 Setenil</p>
+            <p class="blk"><span class="seg">晚上</span>天黑前回賽維亞休息晚餐</p>
+          </td>
+          <td class="c-stay"><span class="stay">POP ART Conde Negro<br>（車過夜）</span></td>
+          <td class="c-note"><ul class="notes"><li>取車前 24 小時（9/29 09:00）前可取消；取車點在機場、需預留接駁時間。</li><li>車當晚停賽維亞：住宿私人停車 ✅已確認，€15/day；勿停 ZBE，累則 Setenil 可放掉。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">10/1</span><span class="s-wd">週四</span></td>
+          <td><span class="s-city">格拉納達</span><span class="s-sub">自駕 2.5h</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>退房 → 自駕往格拉納達</p>
+            <p class="blk"><span class="seg">下午</span>午後抵達入住（✅ 免費私人停車位已確認）休息</p>
+            <p class="blk"><span class="seg">傍晚</span>阿爾拜辛 Albayzín 慢遊</p>
+            <p class="blk"><span class="seg">晚餐</span>✅ Mirador de Morayma 19:30・露台（正對阿罕布拉宮夜景）</p>
+          </td>
+          <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
+          <td class="c-note"><ul class="notes"><li>阿爾拜辛搭 C1 小巴或計程車上去，勿爬坡。</li><li>聖尼古拉斯觀景台日落改至 10/2 傍晚（與今晚餐撞時）。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">10/2</span><span class="s-wd">週五</span></td>
+          <td><span class="s-city">格拉納達</span><span class="s-sub">大教堂＋阿罕布拉宮</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>格拉納達大教堂＋皇家禮拜堂 Capilla Real（10:15 開；午後導覽前先看完）</p>
+            <p class="blk"><span class="seg">下午</span>✅ 15:30 阿罕布拉之旅 La Alhambra — 官方導遊＋納斯里宮殿＋夏宮 Generalife＋城堡區</p>
+            <p class="blk"><span class="seg">傍晚</span>聖尼古拉斯觀景台 Mirador de San Nicolás 看日落（阿罕布拉宮＋內華達山夕照經典角度）</p>
+            <p class="blk"><span class="seg">晚上</span>阿爾拜辛區簡單晚餐休息</p>
+          </td>
+          <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
+          <td class="c-note"><ul class="notes"><li>大教堂／皇家禮拜堂上午看（約 10:15 開、午後場 15:30 導覽前要結束）。</li><li>✅ 已訂 10/2 15:30 阿罕布拉導覽＋官方導遊，不可退款／不可更改；集合 Restaurante La Mimbre；PDF 非入場票、務必攜護照查驗。</li><li>本日較滿：日落約 19:38，聖尼古拉斯視導覽結束時間彈性，太累可改 10/3 傍晚。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">10/3</span><span class="s-wd">週六</span></td>
+          <td><span class="s-city">格拉納達</span><span class="s-sub">彈性日</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>阿爾拜辛 Albayzín 慢遊／睡飽（看體力）</p>
+            <p class="blk"><span class="seg">午後</span>四選一：A 休息＋阿拉伯浴 Hammam(最推)／B 瓜迪斯洞窟／C 蒙特弗里奧／D 白村 Pampaneira</p>
+            <p class="blk"><span class="seg">晚上</span>tapas（點酒送免費 tapa），早睡準備開車</p>
+          </td>
+          <td class="c-stay"><span class="stay">拉卡斯塔德爾喀拉隆旅館</span></td>
+          <td class="c-note"><ul class="notes"><li>彈性日看體力；大教堂已移 10/2 上午。</li><li>白村山路彎、易暈車。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">10/4</span><span class="s-wd">週日</span></td>
+          <td><span class="s-city">馬拉加</span><span class="s-sub">自駕 1.5h · 海邊收尾</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>退房 → 自駕往馬拉加</p>
+            <p class="blk"><span class="seg">下午</span>阿爾卡薩瓦城堡 Alcazaba＋羅馬劇場（相鄰；可上 Gibralfaro 看港景）— ✅ 週日 14:00 起兩城堡免費入場</p>
+            <p class="blk"><span class="seg">晚上</span>馬拉加港 Muelle Uno／海灘散步＋海鮮晚餐（espeto）</p>
+          </td>
+          <td class="c-stay"><span class="stay">Modern apartment with patio &amp; parking REMS</span></td>
+          <td class="c-note"><ul class="notes"><li>傍晚順道加滿油，備隔天還車。</li></ul></td>
+        </tr>
+        <tr>
+          <td class="c-date"><span class="s-date">10/5</span><span class="s-wd">週一</span></td>
+          <td><span class="s-city">回程</span><span class="s-sub">馬拉加出</span></td>
+          <td>
+            <p class="blk"><span class="seg">上午</span>6:30–7:00 出門 → 07:30 馬拉加機場 Centauro 還車（油已加滿）；EY108 09:55 起飛</p>
+          </td>
+          <td class="c-stay"><span class="stay muted">—</span></td>
+          <td class="c-note"><ul class="notes"><li>EY108 僅週一／三／六飛；10/5 為週一、適用。</li><li>國際線提早到、前一晚早睡。</li></ul></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </section>
 
-<section class="wrap section--tips">
-  <div class="sec-head"><p class="kicker"><b>05 — Good to Know</b>團員行前提醒</p><h2>旅途中請留意</h2><div class="rule"><i></i></div></div>
-  <ol class="tips">
-    <li>前一晚確認隔天集合時間與地點；有預約的活動務必準時。</li>
-    <li>護照與重要證件隨身攜帶；聖家堂及阿罕布拉宮當日尤其重要。</li>
-    <li>準備好走的鞋、帽子、太陽眼鏡、薄外套與水壺；進入教堂時穿著端莊。</li>
-    <li>安達魯西亞中午炎熱，正午安排午餐或室內休息，傍晚再散步。</li>
-    <li>La Mercè 節慶：9/23–27 巴塞最大慶典（9/24 市定假日），西班牙廣場一帶活動與人潮多；9/24 上蒙特塞拉特的火車改假日班表，換票搭車要更早。晚上有體力可順看免費疊人塔、巨人遊行與音樂會。</li>
-    <li>巴塞隆納蘭布拉大道、地鐵及馬德里太陽門等人潮區，包包前背並留意手機。</li>
-    <li>高鐵提前至少 30 分鐘到站；車票與集合由導遊統一提醒。</li>
-    <li>自駕日上下車前清點物品，貴重物品不要留在車內可見處。</li>
-    <li>備選景點依天氣與體力取消；景點開放與交通變動以導遊當日通知為準。</li>
+<!-- LODGING -->
+<section class="wrap section--lodging" id="lodging">
+  <div class="sec-head reveal">
+    <p class="kicker"><b>04 — Hotel Stays</b>住宿確認</p>
+    <h2>已訂住宿與入住重點</h2>
+    <div class="rule"><i></i></div>
+  </div>
+  <table class="booking reveal">
+    <thead><tr><th>城市</th><th>住宿與入住</th><th>確認資料</th><th>停車／重要備註</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>巴塞隆納</td>
+        <td class="when"><b>Sweett - Casa Bailen</b><br>9/20 16:00–00:00 入住；9/25 11:00 前退房<br>81 Carrer de Bailèn, 08009 巴塞隆納；+34 932 20 41 49</td>
+        <td>（訂房碼略）<br>PIN 略</td>
+        <td class="when">無停車；EUR 300 損壞押金；已填 16:00–17:00 抵達。</td>
+      </tr>
+      <tr>
+        <td>馬德里</td>
+        <td class="when"><b>奧古斯托慢慢套房公寓</b><br>9/25 15:00–23:00 入住；9/27 11:00 前退房<br>Calle Augusto Figueroa, 47, 28004 馬德里；+34 914 11 10 10</td>
+        <td>（訂房碼略）<br>PIN 略</td>
+        <td class="when">無停車；00:00 後入住加收 EUR 30；21:00 後抵達須先聯絡住宿。</td>
+      </tr>
+      <tr>
+        <td>哥多華</td>
+        <td class="when"><b>Noches de Córdoba</b><br>9/27 15:00 起入住；9/28 11:00 前退房<br>4 Calle Martínez Rucker, 14003 科爾多瓦；+34 658 51 77 57</td>
+        <td>（訂房碼略）<br>PIN 略</td>
+        <td class="when">無停車；須提前告知抵達時間；住宿會另行提供抵達前銀行轉帳付款指示。</td>
+      </tr>
+      <tr>
+        <td>賽維亞</td>
+        <td class="when"><b>POP ART Conde Negro de Sevilla</b><br>9/28 入住；10/1 退房<br>10 Calle Conde Negro, 41003 塞維利亞；+34 617 27 85 40</td>
+        <td>（訂房碼略）<br>PIN 略</td>
+        <td class="when">私人停車 ✅已確認預約，EUR 15/day；已填 15:00–16:00 抵達；可能有最高 EUR 150 損壞費用。</td>
+      </tr>
+      <tr>
+        <td>格拉納達</td>
+        <td class="when"><b>拉卡斯塔德爾喀拉隆旅館</b><br>10/1 14:00–22:00 入住；10/4 07:00–10:00 退房<br>Cascajal, 6, 18010 格拉納達；+34 958 29 46 58</td>
+        <td>（訂房碼略）<br>PIN 略</td>
+        <td class="when">✅ 附近免費私人停車位已確認（1 車位）；須到 Hotel Santa Isabel La Real 辦理入住（距約 100m）。</td>
+      </tr>
+      <tr>
+        <td>馬拉加</td>
+        <td class="when"><b>Modern apartment with patio &amp; parking REMS</b><br>10/4 17:00 起入住；10/5 11:00 前退房<br>4 Calle Antonio Jiménez Ruiz, 29009 馬拉加；+34 951 13 83 27</td>
+        <td>（訂房碼略）<br>PIN 略</td>
+        <td class="when">住宿內免費私人停車，免預約；已留言需要 1 個車位；EUR 400 損壞押金。</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- BOOKING -->
+<section class="wrap section--booking" id="booking">
+  <div class="sec-head reveal">
+    <p class="kicker"><b>05 — Tickets</b>訂票清單</p>
+    <h2>訂票時機與官方連結</h2>
+    <div class="rule"><i></i></div>
+  </div>
+  <table class="booking reveal">
+    <thead><tr><th>項目</th><th>建議訂票時機</th><th>官方網站</th></tr></thead>
+    <tbody>
+      <tr><td>阿罕布拉宮（納斯里宮殿）<span class="star">★ 最易售完</span></td><td class="when">🔒 已訂 10/2（五）15:30 英文導覽＋官方導遊，不可退款／不可更改</td><td><a href="https://www.tripadvisor.com/Bookings" target="_blank" rel="noopener">tripadvisor.com</a> ／ <a href="https://tickets.alhambra-patronato.es" target="_blank" rel="noopener">tickets.alhambra-patronato.es</a></td></tr>
+      <tr><td>聖家堂 Sagrada Família（含登塔）</td><td class="when">⏳ 已訂 9/22（二）14:15–16:15 IBE 導覽＋登塔；9/21 14:15 前免費取消</td><td><a href="https://sagradafamilia.org/en/tickets" target="_blank" rel="noopener">sagradafamilia.org</a></td></tr>
+      <tr><td>奎爾公園 Park Güell</td><td class="when">🔒 已訂 9/23（三）10:30 入場（訂位號 略，€45／3 張）；官方票不可退款</td><td><a href="https://parkguell.barcelona/en" target="_blank" rel="noopener">parkguell.barcelona</a></td></tr>
+      <tr><td>賽維亞王宮 Real Alcázar（含上層公寓）</td><td class="when">🔒 已訂 9/29（二）11:00 皇家上層公寓，不可退款／不可更換</td><td><a href="https://www.alcazarsevilla.org/en/" target="_blank" rel="noopener">alcazarsevilla.org</a></td></tr>
+      <tr><td>賽維亞大教堂＋吉拉達塔</td><td class="when">出發前 1–2 週</td><td><a href="https://www.catedraldesevilla.es/en/" target="_blank" rel="noopener">catedraldesevilla.es</a></td></tr>
+      <tr><td>梅斯基塔（哥多華）</td><td class="when">可現場／線上</td><td><a href="https://mezquita-catedraldecordoba.es/en/" target="_blank" rel="noopener">mezquita-catedraldecordoba.es</a></td></tr>
+      <tr><td>馬德里皇宮</td><td class="when">❓ 已購 9/26（六）14:00 Visit To The Palace + Gallery（Order ID 略，含 Royal Collections Gallery 臨展）；退改條款未載明</td><td><a href="https://www.patrimonionacional.es/en/visita/palacio-real-de-madrid" target="_blank" rel="noopener">patrimonionacional.es</a></td></tr>
+      <tr><td>馬德里佛朗明哥 Corral de la Morería</td><td class="when">⏳ 已訂 9/26（六）18:30 DINNER + SHOW；9/25 18:30 前可取消</td><td><a href="https://www.corraldelamoreria.com/en/" target="_blank" rel="noopener">corraldelamoreria.com</a></td></tr>
+      <tr><td>蒙特塞拉特 TransMontserrat</td><td class="when">✅ 已購（齒軌火車版）；西班牙廣場 08:00–14:00 換實體票</td><td><a href="https://www.cremallerademontserrat.cat/en/" target="_blank" rel="noopener">cremallerademontserrat.cat</a></td></tr>
+      <tr><td>高鐵 3 段（Renfe／iryo）</td><td class="when">✅ 三段均已購：巴塞→馬德里（iryo，略）、馬德里→哥多華（略）、哥多華→賽維亞（略）；後二段退票扣 30%</td><td><a href="https://www.renfe.com/es/en" target="_blank" rel="noopener">renfe.com</a> ／ <a href="https://iryo.eu/en" target="_blank" rel="noopener">iryo.eu</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TIPS -->
+<section class="wrap section--tips" id="tips">
+  <div class="sec-head reveal">
+    <p class="kicker"><b>06 — Good to Know</b>貼心慢遊提醒</p>
+    <h2>讓旅途更舒服的小事</h2>
+    <div class="rule"><i></i></div>
+  </div>
+  <ol class="tips reveal">
+    <li>安達魯西亞中午很熱（哥多華／賽維亞可達 34°C）：硬景點排上午、正午室內避暑、傍晚再散步。</li>
+    <li><span class="warn">La Mercè 節慶</span>（9/23–27，9/24 巴塞市定假日）：西班牙廣場一帶活動與人潮多、扒手多；9/24 上蒙特塞拉特的火車改假日班表，換票搭車要更早。晚上有體力可順看免費疊人塔、巨人遊行與音樂會。</li>
+    <li>帽子、太陽眼鏡、隨身水壺、好走的鞋；中午多店午休（siesta），傍晚才熱鬧。</li>
+    <li>每城安排平路、有電梯或坡道的點，避免長階梯與長時間排隊站立。</li>
+    <li>午餐當正餐（menú del día）；晚餐吃輕、吃早（廚房常 20:00–20:30 才開）；熱門餐廳／佛朗明哥先訂位。</li>
+    <li>高鐵用 Renfe app 存離線票、提早 30 分到站、訂相鄰座；門票全部下載離線備存。</li>
+    <li>防扒：巴塞蘭布拉、地鐵、馬德里太陽門一帶斜背包前背；備旅遊醫療保險、常備藥帶學名。</li>
+    <li>回程當天 EY108 國際線：前一晚早睡、加滿油，提早到機場還車。</li>
   </ol>
 </section>
 
+<!-- FOOTER -->
 <footer class="foot">
-  <div class="rule"><i></i></div><h3>¡Buen viaje!</h3>
+  <div class="rule"><i></i></div>
+  <h3>¡Buen viaje!</h3>
   <p class="es">15 nights through the south of Spain</p>
-  <p>團員簡易版 · 實際集合時間若有調整，以導遊當日通知為準。<br>巴塞隆納 · 馬德里 · 哥多華 · 賽維亞 · 格拉納達 · 馬拉加 | 2026.09.20 – 10.06</p>
+  <p>本手冊為行程規劃參考；航班、高鐵時刻與各景點開放時間，請於出發前依官方網站再次確認。<br>巴塞隆納 · 馬德里 · 哥多華 · 賽維亞 · 格拉納達 · 馬拉加 &nbsp;|&nbsp; 2026.09.20 – 10.05</p>
 </footer>
+
+<script>
+(function(){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){ io.observe(e); });
+  window.addEventListener('beforeprint', function(){ els.forEach(function(e){e.classList.add('in');}); });
+})();
+</script>
 </body>
 </html>
