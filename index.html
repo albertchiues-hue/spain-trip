@@ -220,6 +220,34 @@ tbody tr:nth-child(even){background:rgba(188,135,44,.06);}
 .notes li:last-child{margin-bottom:0;}
 .schedule-wrap{overflow-x:auto; border:1px solid var(--line); box-shadow:var(--shadow); background:var(--card);}
 
+/* ---------- schedule: mobile stacked cards (fixed-width columns can't fit a phone) ---------- */
+@media(max-width:680px){
+  .schedule-wrap{overflow-x:visible; border:none; box-shadow:none; background:transparent;}
+  .schedule{min-width:0; width:100%; font-size:.92rem; border-collapse:separate; border-spacing:0;}
+  .schedule thead{display:none;}
+  .schedule tbody,.schedule tbody tr,.schedule tbody td{display:block;}
+  .schedule tbody tr{
+    margin:0 0 1.1rem; padding:1rem 1.1rem 1.15rem;
+    background:var(--card); border:1px solid var(--line); border-left:3px solid var(--wine);
+    border-radius:9px; box-shadow:var(--shadow-sm);}
+  .schedule tbody tr:hover{background:var(--card);}
+  .schedule tbody td{border-top:none; padding:0; text-align:left; white-space:normal;}
+  /* card header: date + weekday inline */
+  .schedule td.c-date{width:auto; display:flex; align-items:baseline; gap:.55rem; text-align:left; white-space:normal;}
+  .schedule .s-wd{display:inline; margin:0;}
+  /* city + subtitle, divider under the header */
+  .schedule tbody td:nth-child(2){padding-bottom:.7rem; margin-bottom:.85rem; border-bottom:1px dotted var(--line);}
+  .schedule .s-sub{display:inline; margin-left:.5rem;}
+  /* labelled 住宿 / 備註 rows */
+  .schedule td.c-stay,.schedule td.c-note{width:auto; text-align:left; margin-top:.9rem; padding-top:.75rem; border-top:1px dotted var(--line);}
+  .schedule td.c-stay::before,.schedule td.c-note::before{
+    display:block; margin-bottom:.4rem; font-family:var(--sans); font-weight:700;
+    font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ochre-deep);}
+  .schedule td.c-stay::before{content:"住宿 · Stay";}
+  .schedule td.c-note::before{content:"備註 · Notes";}
+  .stay{max-width:none;}
+}
+
 /* ---------- booking & tips ---------- */
 .booking td:first-child{font-family:var(--serif); font-weight:600; color:var(--ink);}
 .booking .when{color:var(--ink-soft);}
