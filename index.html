@@ -353,7 +353,7 @@ tbody tr:nth-child(even){background:rgba(188,135,44,.06);}
     <div class="leg">
       <span class="leg__dot"></span>
       <div class="leg__top"><span class="leg__city">巴塞隆納</span><span class="leg__en">Barcelona</span><span class="leg__nights">5 晚 · 9/20–24</span></div>
-      <p class="leg__hi">哥德區、海濱、聖家堂、聖保羅醫院、奎爾公園、蒙特惠克、蒙特塞拉特一日遊</p>
+      <p class="leg__hi">錫切斯海邊、海濱、聖家堂、聖保羅醫院、奎爾公園、蒙特惠克、蒙特塞拉特一日遊</p>
       <span class="leg__move">高鐵 AVE / iryo → 馬德里</span>
     </div>
     <div class="leg">
@@ -461,14 +461,15 @@ tbody tr:nth-child(even){background:rgba(188,135,44,.06);}
         </tr>
         <tr>
           <td class="c-date"><span class="s-date">9/21</span><span class="s-wd">週一</span></td>
-          <td><span class="s-city">巴塞隆納</span><span class="s-sub">哥德區慢遊</span></td>
+          <td><span class="s-city">錫切斯</span><span class="s-sub">海邊小鎮</span></td>
           <td>
-            <p class="blk"><span class="seg">上午</span>哥德區 Barri Gòtic 慢走（羅馬遺跡＋中世紀石板巷弄）→ 順逛波蓋利亞市場 La Boqueria（買現切水果火腿當早午餐）</p>
-            <p class="blk"><span class="seg">下午</span>回飯店午休、調時差</p>
-            <p class="blk"><span class="seg">晚上</span>蘭布拉大道 La Rambla 短散步＋tapas</p>
+            <p class="blk"><span class="seg">上午</span>Passeig de Gràcia 站搭 Rodalies R2 Sud 線往 Sitges（約 35–40 分；約 10:00–10:30 出發）</p>
+            <p class="blk"><span class="seg">中午</span>濱海長廊 Passeig Marítim 散步（全程平路）→ 聖巴托美教堂海岬遠觀 → 海鮮午餐</p>
+            <p class="blk"><span class="seg">下午</span>老城小店慢逛或濱海咖啡廳休息；約 16:00–16:30 搭車返回巴塞隆納</p>
+            <p class="blk"><span class="seg">晚上</span>蘭布拉大道 La Rambla 短散步＋tapas（不變）</p>
           </td>
           <td class="c-stay"><span class="stay">Sweett - Casa Bailen</span></td>
-          <td class="c-note"><ul class="notes"><li>接續調時差，仍走低強度。</li><li>波蓋利亞市場約 20:30 關、週一部分魚攤休，故排上午逛。</li><li>備選：午後順走隔壁 El Born＋聖卡特琳娜市場、加泰隆尼亞音樂宮（導覽需先訂）。</li></ul></td>
+          <td class="c-note"><ul class="notes"><li>接續調時差，全程濱海平路、低強度。</li><li>出發前上 Rodalies 官網／App 確認當日 R2 Sud 實際班次。</li><li>原哥德區＋波蓋利亞市場計畫改列備選，若其他天有空檔可挪入。</li></ul></td>
         </tr>
         <tr>
           <td class="c-date"><span class="s-date">9/22</span><span class="s-wd">週二</span></td>
@@ -733,14 +734,37 @@ tbody tr:nth-child(even){background:rgba(188,135,44,.06);}
 
 <script>
 (function(){
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var els = document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  function show(e){ e.classList.add('in'); }
+  function showAll(){ els.forEach(show); }
+  // Always reveal for print and reduced-motion (no animation, guaranteed visible).
+  window.addEventListener('beforeprint', showAll);
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ showAll(); return; }
+  if(!('IntersectionObserver' in window)){ showAll(); return; }
+
+  // threshold:0 — fire as soon as ANY pixel enters view. A .12 threshold could
+  // never be met by the itinerary table on a phone (it renders far taller than
+  // the screen), leaving it stuck at opacity:0 on iOS Safari.
   var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
-  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    entries.forEach(function(en){ if(en.isIntersecting){ show(en.target); io.unobserve(en.target);} });
+  }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){ io.observe(e); });
-  window.addEventListener('beforeprint', function(){ els.forEach(function(e){e.classList.add('in');}); });
+
+  // Safety net: iOS Safari can drop IO callbacks (dynamic toolbar height, very
+  // tall targets, late-loading fonts). Reveal anything in view on load/scroll,
+  // and force-reveal everything after a few seconds — content is never hidden.
+  function revealInView(){
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    els.forEach(function(e){
+      if(e.classList.contains('in')) return;
+      var r = e.getBoundingClientRect();
+      if(r.top < vh && r.bottom > 0){ show(e); io.unobserve(e); }
+    });
+  }
+  window.addEventListener('load', revealInView);
+  window.addEventListener('scroll', revealInView, {passive:true});
+  window.addEventListener('resize', revealInView, {passive:true});
+  setTimeout(showAll, 4000);
 })();
 </script>
 </body>
